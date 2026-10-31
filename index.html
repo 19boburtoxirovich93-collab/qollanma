@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="«Boshlang‘ich matematika kursi nazariyasi» o‘quv qo‘llanmasining elektron ilovasi: amaliy mashg‘ulot matni, taqdimot va 40 ballik baholash.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Qo‘llanma ilovasi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: daftar (kataklik qog‘oz) — chap hoshiya chizig‘i, siyoh ko‘k matn, qizil hoshiya aksenti */
+:root{
+  --paper:#fbfcfe; --grid:#e3e9f5; --ink:#1d2b4f; --ink-soft:#4a5776; --muted:#7c879f;
+  --accent:#d6455b; --blue:#2554c7; --card:#ffffff; --line:#d5ddeb; --tint:#eef3fc;
+  --ok:#1f9d5b; --ok-bg:#e3f6ec; --bad:#d6455b; --bad-bg:#fde8eb; --warn:#e8a317;
+  --fig-bg:#ffffff;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, "Cambria Math", "Noto Sans Math", sans-serif;
+  --f-body:"Source Serif 4", Georgia, "Times New Roman", "Cambria Math", "STIX Two Math", "Noto Sans Math", serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --s:1rem;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#11172a; --grid:#1a2340; --ink:#e7ecf8; --ink-soft:#b6c0da; --muted:#8792b0;
+  --accent:#ff6b81; --blue:#7ea2ff; --card:#18213a; --line:#2a3657; --tint:#1d2848;
+  --ok:#4cd38c; --ok-bg:#163a2a; --bad:#ff6b81; --bad-bg:#3d1c26; --warn:#f5c04f; --fig-bg:#f7f9fd; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#11172a; --grid:#1a2340; --ink:#e7ecf8; --ink-soft:#b6c0da; --muted:#8792b0;
+  --accent:#ff6b81; --blue:#7ea2ff; --card:#18213a; --line:#2a3657; --tint:#1d2848;
+  --ok:#4cd38c; --ok-bg:#163a2a; --bad:#ff6b81; --bad-bg:#3d1c26; --warn:#f5c04f; --fig-bg:#f7f9fd; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--card)}
+a{color:var(--blue)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-weight:800;font-size:1.05rem;letter-spacing:-.01em;text-decoration:none;color:var(--ink);display:flex;align-items:center;gap:10px}
+.brand .mk{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:.9rem}
+.brand small{display:block;font-weight:500;color:var(--muted);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase}
+.spacer{flex:1}
+.search{flex:1 1 220px;max-width:340px;position:relative}
+.search input{width:100%;padding:8px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit;font-family:var(--f-display);font-size:.95rem}
+main{padding-block:22px 60px}
+/* ---------- home ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:end;margin-bottom:26px}
+.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.05;letter-spacing:-.025em;margin:0 0 10px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{margin:0;color:var(--ink-soft);max-width:60ch}
+.stats{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--f-display)}
+.stat b{display:block;font-family:var(--f-mono);font-size:1.6rem;color:var(--blue);font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.part{margin-top:30px}
+.part>h2{font-family:var(--f-display);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.bob{margin:18px 0 10px;font-family:var(--f-display);font-weight:700;font-size:1.15rem;display:flex;gap:10px;align-items:baseline}
+.bob .bn{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.tc{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 14px 12px;text-decoration:none;color:var(--ink);transition:transform .15s,border-color .15s;min-width:0}
+.tc:hover{transform:translateY(-2px);border-color:var(--blue)}
+.tc .no{font-family:var(--f-mono);font-weight:700;color:var(--accent);font-size:.85rem}
+.tc .tt{font-family:var(--f-display);font-weight:700;line-height:1.25;font-size:1rem;text-wrap:balance}
+.tc .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.chip{font-family:var(--f-display);font-size:.72rem;padding:2px 8px;border-radius:99px;background:var(--tint);color:var(--ink-soft);white-space:nowrap}
+.chip.best{background:var(--ok-bg);color:var(--ok)}
+/* ---------- topic ---------- */
+.crumb{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-family:var(--f-display);font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.crumb a{color:var(--muted)}
+.th{display:flex;gap:16px;align-items:flex-start;margin-bottom:14px}
+.th .big{white-space:nowrap;font-family:var(--f-mono);font-weight:700;font-size:clamp(2rem,6vw,3.4rem);line-height:.9;color:var(--accent)}
+.th h1{font-family:var(--f-display);font-weight:800;font-size:clamp(1.4rem,3.4vw,2.1rem);line-height:1.12;letter-spacing:-.02em;margin:4px 0 0;text-wrap:balance}
+.tabs{display:flex;gap:6px;border-bottom:2px solid var(--line);margin-bottom:20px;overflow-x:auto}
+.tabs button{border:0;background:none;padding:10px 14px;font-family:var(--f-display);font-weight:700;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-color:var(--accent)}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--card);padding:9px 14px;border-radius:10px;font-family:var(--f-display);font-weight:700;text-decoration:none;color:var(--ink)}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn.red{background:var(--accent);border-color:var(--accent);color:#fff}
+/* text */
+.doc{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:4px 14px 14px 4px;padding:22px clamp(16px,4vw,44px)}
+.doc>*{max-width:72ch}
+.doc h3{font-family:var(--f-display);font-size:1.2rem;margin:28px 0 8px;line-height:1.25;text-wrap:balance}
+.doc h3:first-child{margin-top:0}
+.doc p{margin:0 0 10px;text-align:justify;hyphens:auto}
+.doc .mis{background:var(--tint);border-radius:10px;padding:10px 14px;margin:14px 0 6px}
+.doc .yech{margin:0 0 6px 14px;padding-left:12px;border-left:2px solid var(--line);font-size:.97em}
+.doc .box{border:1.5px solid var(--blue);border-radius:10px;padding:10px 14px;margin:12px 0;background:var(--card)}
+.doc ul{margin:6px 0 12px;padding-left:22px}
+.doc .center{text-align:center}
+.zone{font-family:var(--f-display);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:34px 0 -18px;max-width:none}
+figure{margin:16px 0;max-width:none!important}
+.fig{background:var(--fig-bg);border:1px solid var(--line);border-radius:12px;padding:10px;overflow-x:auto}
+.fig svg,.fig img{display:block;width:100%;height:auto;max-width:760px;margin:0 auto}
+figcaption{font-size:.88rem;color:var(--ink-soft);font-style:italic;text-align:center;margin-top:6px}
+.tbl{overflow-x:auto;margin:12px 0;max-width:none!important}
+table{border-collapse:collapse;font-size:.92rem;min-width:60%}
+td,th{border:1px solid var(--line);padding:5px 9px;text-align:center}
+th{background:var(--tint);font-family:var(--f-display)}
+/* ---------- slides ---------- */
+.deck{position:relative}
+.stage{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;aspect-ratio:16/9;max-width:100%;overflow:hidden;box-shadow:0 10px 30px -18px rgba(20,40,90,.35)}
+.slide{position:absolute;inset:0;padding:clamp(14px,3.2vw,40px);display:flex;flex-direction:column;gap:12px;overflow:auto}
+.slide[hidden]{display:none}
+.slide .kicker{font-family:var(--f-display);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.slide h2{font-family:var(--f-display);font-weight:800;font-size:clamp(1.1rem,2.6vw,1.9rem);line-height:1.15;margin:0;text-wrap:balance;letter-spacing:-.015em}
+.slide .cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(12px,2.4vw,28px);align-items:start;flex:1;min-height:0}
+.slide .cols.one{grid-template-columns:minmax(0,1fr)}
+.slide p,.slide li{font-size:clamp(.82rem,1.55vw,1.05rem);line-height:1.5;margin:0}
+.slide ul{margin:0;padding-left:20px;display:grid;gap:8px}
+.slide .fig{padding:6px}
+.slide .fig svg,.slide .fig img{max-height:min(46vh,380px)}
+.title-slide{justify-content:center;background:linear-gradient(135deg,var(--tint),transparent 60%)}
+.title-slide .sec{font-family:var(--f-mono);font-weight:700;font-size:clamp(3rem,10vw,7rem);color:var(--accent);line-height:.9}
+.title-slide h2{font-size:clamp(1.4rem,3.6vw,2.6rem)}
+.outline{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.rv{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
+.rv.on{opacity:1;transform:none}
+.steam-list{display:grid;gap:7px}
+.steam-list .it{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:start;font-size:clamp(.78rem,1.45vw,.98rem);line-height:1.45}
+.steam-list .lt{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;color:#fff}
+.lt.S{background:#1f9d5b}.lt.T{background:#2554c7}.lt.E{background:#e8a317}.lt.A{background:#c23ea0}.lt.M{background:#d6455b}.lt.K{background:#5b4bc4}.lt.J{background:#1d2b4f}
+.answer{background:var(--ok-bg);color:var(--ok);border-radius:10px;padding:8px 12px;font-family:var(--f-display);font-weight:700}
+.deckbar{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+.deckbar .prog{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden;min-width:80px}
+.deckbar .prog i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.deckbar .cnt{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.iconbtn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-family:var(--f-display);font-weight:700}
+.stage:fullscreen{aspect-ratio:auto;border-radius:0}
+.qq .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+/* svg animation */
+@keyframes pop{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:none}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.anim g.ag{transform-box:fill-box;transform-origin:center;animation:pop .55s cubic-bezier(.2,.8,.2,1) both}
+.anim path.dr{animation:draw 1s ease forwards}
+@media (prefers-reduced-motion: reduce){.anim g.ag,.anim path.dr{animation:none!important;stroke-dashoffset:0!important}.rv{transition:none}}
+/* ---------- quiz ---------- */
+.quiz{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,3vw,32px);max-width:860px}
+.qhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-display)}
+.score{font-family:var(--f-mono);font-weight:700;font-size:1.25rem;color:var(--blue);font-variant-numeric:tabular-nums}
+.streak{font-family:var(--f-display);font-weight:700;color:var(--warn)}
+.timer{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin:14px 0 18px}
+.timer i{display:block;height:100%;background:var(--ok);transition:width 1s linear,background .3s}
+.qtext{font-family:var(--f-display);font-weight:700;font-size:clamp(1.05rem,2.4vw,1.4rem);line-height:1.35;margin:0 0 16px;text-wrap:balance}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:grid;grid-template-columns:36px minmax(0,1fr);gap:10px;align-items:center;text-align:left;border:2px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 12px;font-size:1rem;line-height:1.35;transition:transform .1s,border-color .2s,background .2s}
+.opt:hover:not([disabled]){border-color:var(--blue);transform:translateY(-1px)}
+.opt .L{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;color:#fff}
+.opt:nth-child(1) .L{background:#2554c7}.opt:nth-child(2) .L{background:#1f9d5b}.opt:nth-child(3) .L{background:#e8a317}.opt:nth-child(4) .L{background:#c23ea0}
+.opt.ok{border-color:var(--ok);background:var(--ok-bg)}
+.opt.bad{border-color:var(--bad);background:var(--bad-bg);animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{min-height:28px;margin-top:12px;font-family:var(--f-display);font-weight:700}
+.fb.ok{color:var(--ok)}.fb.bad{color:var(--bad)}
+.dots{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+.dots span{width:14px;height:6px;border-radius:3px;background:var(--line)}
+.dots span.ok{background:var(--ok)}.dots span.bad{background:var(--bad)}.dots span.cur{background:var(--blue)}
+.result{text-align:center}
+.stars{font-size:2.6rem;letter-spacing:.2em;color:var(--warn)}
+.stars .off{color:var(--line)}
+.review{text-align:left;margin-top:18px;display:grid;gap:8px}
+.review .r{border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.95rem}
+.burst{position:fixed;pointer-events:none;z-index:50;font-family:var(--f-mono);font-weight:700;color:var(--ok);animation:up 1s ease forwards}
+@keyframes up{to{transform:translateY(-60px);opacity:0}}
+.empty{color:var(--muted);font-family:var(--f-display)}
+.gradebox{display:flex;gap:14px;align-items:center;justify-content:center;text-align:left;margin:10px auto;max-width:520px;border-radius:16px;padding:12px 16px;border:2px solid var(--line);font-family:var(--f-display)}
+.gradebox .gnum{width:56px;height:56px;border-radius:14px;display:grid;place-items:center;font-family:var(--f-mono);font-weight:700;font-size:2rem;color:#fff;flex:none}
+.g5 .gnum{background:var(--ok)}.g4 .gnum{background:var(--blue)}.g3 .gnum{background:var(--warn)}.g2 .gnum{background:var(--bad)}
+.g5{border-color:var(--ok)}.g4{border-color:var(--blue)}.g3{border-color:var(--warn)}.g2{border-color:var(--bad)}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  .slide .cols{grid-template-columns:minmax(0,1fr)}
+  .stage{aspect-ratio:auto;min-height:72vh}
+  .opts,.qq .opts{grid-template-columns:minmax(0,1fr)}
+  body{font-size:16px}
+}
+</style>
+
+<style>
+.optline{display:flex;flex-wrap:wrap;gap:6px 18px;margin:-4px 0 10px 18px;color:var(--ink-soft)}
+.doc p.case{font-family:var(--f-display);font-size:1.05rem;margin-top:22px}
+.doc p.wq,.doc p.ref{font-weight:500;margin-top:16px}
+.doc p.jav{border-left:3px solid var(--ok);padding-left:10px;background:var(--ok-bg);border-radius:6px}
+.doc p.vaz,.doc p.savol{margin:6px 0}
+.doc p.f{text-align:center;font-family:var(--f-mono)}
+.doc h3{scroll-margin-top:80px}
+.doc .fig svg{max-height:440px;width:auto;max-width:100%;margin:0 auto;display:block}
+</style></head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#"><span class="mk">§</span><span>Boshlang‘ich matematika<small>O‘quv qo‘llanma ilovasi</small></span></a>
+  <span class="spacer"></span>
+  <div class="search"><input id="q" type="search" placeholder="Mavzu qidirish…" aria-label="Mavzu qidirish"></div>
+</div></header>
+<main class="wrap" id="app"><p class="empty">Yuklanmoqda…</p></main>
+
+<script>
+const INDEX = [{"n": 1, "title": "To‘plamlar", "bob": "1-BOB. TO‘PLAMLAR NAZARIYASI ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 2, "title": "To‘plamlar ustida amallar. Dekart ko‘paytma", "bob": "1-BOB. TO‘PLAMLAR NAZARIYASI ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 3, "title": "To‘plamlarni sinflarga ajratish", "bob": "1-BOB. TO‘PLAMLAR NAZARIYASI ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 4, "title": "Moslik va uning turlari", "bob": "1-BOB. TO‘PLAMLAR NAZARIYASI ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 5, "title": "Binar munosabatlar va ularning xossalari", "bob": "1-BOB. TO‘PLAMLAR NAZARIYASI ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 6, "title": "Kombinatorika elementlari. Yig‘indi va ko‘paytma qoidalari", "bob": "2-BOB. KOMBINATORIKA ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 7, "title": "O‘rinlashtirishlar va o‘rin almashtirishlar", "bob": "2-BOB. KOMBINATORIKA ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 8, "title": "Gruppalashlar", "bob": "2-BOB. KOMBINATORIKA ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 9, "title": "Matematik tushuncha. Tushunchalarni ta’riflash", "bob": "3-BOB. MATEMATIK MANTIQ ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 10, "title": "Mulohazalar va ular ustida amallar", "bob": "3-BOB. MATEMATIK MANTIQ ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 11, "title": "Predikatlar. Implikatsiya va ekvivalensiya", "bob": "3-BOB. MATEMATIK MANTIQ ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 12, "title": "Kvantorlar", "bob": "3-BOB. MATEMATIK MANTIQ ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 13, "title": "Teoremaning tuzilishi va turlari. Matematik isbotlash usullari", "bob": "3-BOB. MATEMATIK MANTIQ ELEMENTLARI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 14, "title": "Algebraik operatsiyalar va ularning xossalari", "bob": "4-BOB. ALGEBRAIK OPERATSIYALAR VA GRAFLAR", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 15, "title": "Graflar nazariyasi elementlari", "bob": "4-BOB. ALGEBRAIK OPERATSIYALAR VA GRAFLAR", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 16, "title": "Nomanfiy butun sonlar to‘plami", "bob": "5-BOB. NOMANFIY BUTUN SONLAR TO‘PLAMI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 17, "title": "Yig‘indi va ayirmaning ta’rifi", "bob": "5-BOB. NOMANFIY BUTUN SONLAR TO‘PLAMI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 18, "title": "Ko‘paytmaning ta’rifi", "bob": "5-BOB. NOMANFIY BUTUN SONLAR TO‘PLAMI", "part": "I QISM. TO‘PLAMLAR, MANTIQ VA KOMBINATORIKA ELEMENTLARI (1-semestr)"}, {"n": 19, "title": "Nomanfiy butun sonni natural songa bo‘lish", "bob": "6-BOB. NOMANFIY BUTUN SONLAR NAZARIYASINING AKSIOMATIK ASOSLARI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 20, "title": "Qo‘shishning aksiomatik ta’rifi va qonunlari", "bob": "6-BOB. NOMANFIY BUTUN SONLAR NAZARIYASINING AKSIOMATIK ASOSLARI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 21, "title": "Ko‘paytirishning aksiomatik ta’rifi. Ayirish va bo‘lish", "bob": "6-BOB. NOMANFIY BUTUN SONLAR NAZARIYASINING AKSIOMATIK ASOSLARI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 22, "title": "Nomanfiy butun sonlar to‘plamining xossalari", "bob": "6-BOB. NOMANFIY BUTUN SONLAR NAZARIYASINING AKSIOMATIK ASOSLARI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 23, "title": "Natural son miqdorlarni o‘lchash natijasi sifatida", "bob": "6-BOB. NOMANFIY BUTUN SONLAR NAZARIYASINING AKSIOMATIK ASOSLARI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 24, "title": "Sanoq sistemalari. O‘nli pozitsion sanoq sistemasi", "bob": "7-BOB. SANOQ SISTEMALARI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 25, "title": "O‘ndan farqli pozitsion sanoq sistemalari", "bob": "7-BOB. SANOQ SISTEMALARI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 26, "title": "Arifmetik amallarni og‘zaki bajarish usullari", "bob": "7-BOB. SANOQ SISTEMALARI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 27, "title": "Bo‘linish munosabati va uning xossalari", "bob": "8-BOB. SONLARNING BO‘LINISHI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 28, "title": "Yig‘indi va ko‘paytmaning bo‘linishi. Bo‘linish alomatlari", "bob": "8-BOB. SONLARNING BO‘LINISHI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 29, "title": "Tub va murakkab sonlar", "bob": "8-BOB. SONLARNING BO‘LINISHI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 30, "title": "Eng katta umumiy bo‘luvchi va eng kichik umumiy karrali", "bob": "8-BOB. SONLARNING BO‘LINISHI", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 31, "title": "Son tushunchasini kengaytirish. Butun sonlar", "bob": "9-BOB. SON TUSHUNCHASINI KENGAYTIRISH", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 32, "title": "Ratsional sonlar", "bob": "9-BOB. SON TUSHUNCHASINI KENGAYTIRISH", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 33, "title": "O‘nli kasrlar va ular ustida amallar", "bob": "9-BOB. SON TUSHUNCHASINI KENGAYTIRISH", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 34, "title": "Haqiqiy sonlar", "bob": "9-BOB. SON TUSHUNCHASINI KENGAYTIRISH", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 35, "title": "Kompleks sonlar", "bob": "9-BOB. SON TUSHUNCHASINI KENGAYTIRISH", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 36, "title": "Kompleks sonlarning geometrik ma’nosi va trigonometrik shakli", "bob": "9-BOB. SON TUSHUNCHASINI KENGAYTIRISH", "part": "II QISM. SONLAR NAZARIYASI VA SON TUSHUNCHASINI KENGAYTIRISH (2-semestr)"}, {"n": 37, "title": "Geometriya elementlari", "bob": "10-BOB. GEOMETRIYA ELEMENTLARI", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 38, "title": "Geometrik figuralar. Burchak va uning turlari", "bob": "10-BOB. GEOMETRIYA ELEMENTLARI", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 39, "title": "To‘rtburchaklar. To‘g‘ri to‘rtburchak va kvadratning perimetri va yuzi", "bob": "10-BOB. GEOMETRIYA ELEMENTLARI", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 40, "title": "Uchburchaklar", "bob": "10-BOB. GEOMETRIYA ELEMENTLARI", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 41, "title": "Aylana va doira", "bob": "10-BOB. GEOMETRIYA ELEMENTLARI", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 42, "title": "Ko‘pyoqlilar", "bob": "10-BOB. GEOMETRIYA ELEMENTLARI", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 43, "title": "Aylanma jismlar. Fazoviy figuralarni tekislikda tasvirlash", "bob": "10-BOB. GEOMETRIYA ELEMENTLARI", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 44, "title": "Geometrik masalalar yechish metodlari", "bob": "10-BOB. GEOMETRIYA ELEMENTLARI", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 45, "title": "Miqdorlar va ularni o‘lchash", "bob": "11-BOB. MIQDORLAR VA ULARNI O‘LCHASH", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 46, "title": "Kesma uzunligi va uning asosiy xossalari", "bob": "11-BOB. MIQDORLAR VA ULARNI O‘LCHASH", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 47, "title": "Figuralarning yuzi va uni o‘lchash usullari", "bob": "11-BOB. MIQDORLAR VA ULARNI O‘LCHASH", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 48, "title": "Muntazam va nostandart shakllarning perimetri", "bob": "11-BOB. MIQDORLAR VA ULARNI O‘LCHASH", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 49, "title": "Jismning massasi va hajmi. Ularni o‘lchash", "bob": "11-BOB. MIQDORLAR VA ULARNI O‘LCHASH", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 50, "title": "Fazoviy figuralarning hajmi. Hajm birliklari", "bob": "11-BOB. MIQDORLAR VA ULARNI O‘LCHASH", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 51, "title": "Vaqt oraliqlari va boshlang‘ich matematika kursidagi boshqa miqdorlar", "bob": "11-BOB. MIQDORLAR VA ULARNI O‘LCHASH", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 52, "title": "Matnli masalalar va ularni yechish metodlari", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 53, "title": "Noma’lum kiritish orqali yechiladigan masalalar. Proporsiyalar", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 54, "title": "Qiziqarli kombinatorika masalalari", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 55, "title": "Proporsiya va unga doir masalalar", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 56, "title": "Foizga doir masalalar", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 57, "title": "Ishga doir masalalar. Matnli masalalar turlari va modellashtirish", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 58, "title": "Harakatga doir masalalar", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 59, "title": "Aralashmaga, haroratga va konsentratsiyaga doir masalalar", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}, {"n": 60, "title": "Nostandart va mantiqiy masalalar", "bob": "12-BOB. MATNLI MASALALAR", "part": "III QISM. GEOMETRIYA, MIQDORLAR VA MATNLI MASALALAR (3-semestr)"}];
+const MTINDEX = [{"n": 1, "title": "Boshlang‘ich sinf matematika kursida son tushunchasining shakllanish tarixi va uning zamonaviy aksiomatik asoslari"}, {"n": 2, "title": "Natural sonlarni o‘qitishda PISA va TIMSS xalqaro baholash dasturlarining talablari va mezonlari"}, {"n": 3, "title": "Arifmetik amallarning nazariy asoslari va o‘quvchilarda ularni ongli o‘zlashtirishni ta’minlash yo‘llari"}, {"n": 4, "title": "Boshlang‘ich matematika kursida to‘plamlar nazariyasi elementlari va ulardan foydalanish metodikasi"}, {"n": 5, "title": "Kasr tushunchasining nazariy asoslari: qism, butun va o‘lchov yondashuvlarining qiyosiy tahlili"}, {"n": 6, "title": "O‘lchov nazariyasi va kattaliklarni o‘lchash tushunchasini shakllantirishning ilmiy-metodik asoslari"}, {"n": 7, "title": "Geometrik tushunchalarni (nuqta, to‘g‘ri chiziq, tekislik) kiritishning nazariy asoslari"}, {"n": 8, "title": "Tenglama va tengsizliklar nazariyasi: algebraik propedevtikani tashkil etish metodikasi"}, {"n": 9, "title": "Matnli masalalarni modellashtirish usullari va xalqaro yondashuvlar (Singapore Math uslubi misolida)"}, {"n": 10, "title": "Mantiqiy va kombinatorika elementlarini kursning nazariy mazmuniga integratsiya qilish"}, {"n": 11, "title": "Fazoviy tasavvur va geometrik figuralar xossalarini o‘rganishning nazariy asoslari (Van Hiele nazariyasi)"}, {"n": 12, "title": "Matematik tushunchalarni shakllantirishda abstraksiyalash, umumlashtirish va konkretlashtirish metodlari"}, {"n": 13, "title": "Funksional bog‘liqlik elementlarini o‘rgatishning nazariy va amaliy jihatlari"}, {"n": 14, "title": "Raqamli muhitda boshlang‘ich matematika nazariyasini o‘qitishning didaktik prinsiplari"}, {"n": 15, "title": "Tanqidiy va mantiqiy fikrlashni rivojlantirishning matematik-nazariy asoslari"}, {"n": 16, "title": "Sanoq sistemalari nazariyasi asosida numeratsiya tushunchasini chuqurlashtirib o‘rganish"}, {"n": 17, "title": "Arifmetik amallar xossalari (kommutativlik, assotsiativlik, distributivlik) va ularning mantiqiy-nazariy asoslari"}, {"n": 18, "title": "Qoldiqli bo‘lish nazariyasi va uni amalda qo‘llash metodikasi"}, {"n": 19, "title": "Kasrlar ustida amallarning nazariy modellari va ularni vizuallashtirish usullari"}, {"n": 20, "title": "O‘nli kasrlar tushunchasining kelib chiqishi va metrik o‘lchov tizimi bilan uzviyligi"}, {"n": 21, "title": "Proporsiya va nisbat tushunchalarining algebraik-nazariy asoslari"}, {"n": 22, "title": "Geometrik jismlar nazariyasi va ularning xossalarini o‘rganish metodikasi"}, {"n": 23, "title": "Simmetriya nazariyasi elementlari va ularni kursga integratsiya qilish yo‘llari"}, {"n": 24, "title": "Kombinatorikaning boshlang‘ich tushunchalari va ularning nazariy asoslari"}, {"n": 25, "title": "Ehtimollar nazariyasi va statistika elementlarining kursdagi o‘rni hamda xalqaro tajriba"}, {"n": 26, "title": "Matematik masalalarni yechishda evristik usullar va algoritmik yondashuvlar"}, {"n": 27, "title": "STEM va STEAM yondashuvlari asosida boshlang‘ich matematika nazariyasini o‘qitish metodologiyasi"}, {"n": 28, "title": "Xatolar nazariyasi: o‘quvchilarning konseptual xatolarini tahlil qilish va bartaraf etish"}, {"n": 29, "title": "Algoritmlar nazariyasi va hisoblash ko‘nikmalarini rivojlantirishning psixologik-pedagogik asoslari"}, {"n": 30, "title": "Aksiomatik va genetik yondashuvlarning o‘zaro nisbati va didaktik imkoniyatlari"}, {"n": 31, "title": "Geometrik tushunchalarni shakllantirishning ilmiy-nazariy asoslari (nuqta, to‘g‘ri chiziq, kesma)"}, {"n": 32, "title": "Uchburchak, to‘g‘ri to‘rtburchak va ularning xossalarini o‘qitish"}, {"n": 33, "title": "Perimetr, yuz va hajm tushunchalarini o‘rgatishning nazariy va amaliy jihatlari"}, {"n": 34, "title": "Miqdorlar va o‘lchov birliklari (uzunlik, massa, vaqt, hajm, qiymat) nazariyasi"}, {"n": 35, "title": "Boshlang‘ich sinf o‘quvchilarining matematikadan o‘zlashtirish ko‘rsatkichlari to‘g‘risida ma’lumot yig‘ish"}, {"n": 36, "title": "Van Hiele nazariyasi va geometrik tushunchalarni bosqichma-bosqich rivojlantirish"}, {"n": 37, "title": "GeoGebra va Desmos yordamida geometrik figuralar xossalarini eksperimental tadqiq qilish"}, {"n": 38, "title": "Fazoviy tasavvur va 3D modellashtirish: geometrik jismlar bilan ishlashning zamonaviy yondashuvlari"}, {"n": 39, "title": "STEM asosida geometriya va amaliy konstruksiyalash (origami, tangram, modulli dizayn)"}, {"n": 40, "title": "Transformatsion geometriya elementlari (siljitish, simmetriya, burilish) va vizual modellar"}, {"n": 41, "title": "PISA va TIMSS dasturlarida fazoviy-geometrik savodxonlikni baholash topshiriqlari tahlili"}, {"n": 42, "title": "Perimetr, yuz va hajmning o‘lchov nazariyasi hamda real hayotiy vaziyatlarda qo‘llanilishi"}, {"n": 43, "title": "Evklid va noevklid geometriya elementlarining propedevtikasi"}, {"n": 44, "title": "Geometrik masalalarda modellashtirish va vizual evristik strategiyalar (Singapur tajribasi)"}, {"n": 45, "title": "Fraktallar va tabiatdagi geometriya: nostandart shakllar orqali mantiqiy tafakkurni rivojlantirish"}, {"n": 46, "title": "Koordinatalar sistemasi va fazoviy yo‘nalishni aniqlash ko‘nikmalarini shakllantirish metodikasi"}, {"n": 47, "title": "Geometrik tushunchalarni o‘qitishda tanqidiy tafakkur va xatolar tahlili"}];
+/* O‘quv qo‘llanma elektron ilovasi */
+const QD = {};
+const LOADED = {};
+function QD_LOAD(obj){ Object.assign(QD, obj); }
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const strip = h => { const d=document.createElement('div'); d.innerHTML=h; return d.textContent; };
+const LT = 'ABCDE';
+const partOf = n => n<=18?1:n<=36?2:3;
+const mtPartOf = n => n<=15?1:n<=30?2:3;
+function loadPart(p){
+  if(LOADED[p]) return LOADED[p];
+  LOADED[p] = new Promise((res,rej)=>{ const s=document.createElement('script'); s.src='q'+p+'.js?v=1793418590'; s.onload=()=>res(); s.onerror=()=>{ delete LOADED[p]; rej(); }; document.head.appendChild(s); });
+  return LOADED[p];
+}
+async function load(key){
+  if(QD[key]) return QD[key];
+  const n=+key.replace(/\D/g,''); await loadPart(key.startsWith('mt')?mtPartOf(n):partOf(n)); return QD[key];
+}
+function gradeOf(total){ return total>=35?5:total>=29?4:total>=23?3:2; }
+const GW = {5:'a’lo',4:'yaxshi',3:'qoniqarli',2:'qoniqarsiz'};
+function resKey(key,kind){ return 'res:'+key+':'+kind; }
+function saveRes(key,kind,right,total){ store.set(resKey(key,kind), {right,total,ts:Date.now()}); }
+function getRes(key,kind){ return store.get(resKey(key,kind)); }
+
+/* ---------------- HOME ---------------- */
+function home(filter=''){
+  document.title = 'O‘quv qo‘llanma ilovasi';
+  const f = filter.trim().toLowerCase();
+  const onlyMT = location.hash==='#mt';
+  let h = `<section class="hero"><div><h1>Amaliy mashg‘ulot: <em>matn</em>, <em>taqdimot</em>, <em>40 ballik baholash</em></h1>
+  <p>«Boshlang‘ich matematika kursi nazariyasi» o‘quv qo‘llanmasining elektron ilovasi. Har bir mavzu: amaliy mashg‘ulot matni, taqdimot, 20 savollik test o‘yini (20 ball), yopiq test (10 ball) va ko‘rgazmali test (10 ball). Natija kartasini o‘qituvchingizga ko‘rsating.</p></div>
+  <div class="stats"><div class="stat"><b>${INDEX.length}</b><span>mavzu</span></div><div class="stat"><b>${INDEX.length*40}</b><span>test savoli</span></div><div class="stat"><b>${MTINDEX.length}</b><span>MT yo‘riqnoma</span></div></div></section>
+  <div class="namebox quiz" style="max-width:900px;margin-bottom:8px"><label style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><b style="font-family:var(--f-display)">Talaba:</b>
+   <input id="nm" placeholder="Familiya, ism" value="${esc(store.get('student')||'')}" style="flex:1 1 200px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit">
+   <input id="gr" placeholder="Guruh" value="${esc(store.get('group')||'')}" style="flex:0 1 120px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit"></label></div>`;
+  let part='', bob='';
+  const list = onlyMT ? [] : INDEX.filter(t => !f || (t.n+' '+t.title).toLowerCase().includes(f));
+  for(const t of list){
+    if(t.part!==part){ if(part) h+='</div></section>'; part=t.part; h+=`<section class="part"><h2>${esc(part)}</h2>`; bob=''; }
+    if(t.bob!==bob){ if(bob) h+='</div>'; bob=t.bob; const m=bob.match(/^(\d+-BOB)\.?\s*(.*)$/);
+      h+=`<div class="bob"><span class="bn">${m?m[1]:''}</span><span>${esc(m?m[2]:bob)}</span></div><div class="grid">`; }
+    const r=['test','yopiq','vizual'].map(k=>getRes('a'+t.n,k)); const tot=r.every(Boolean)?r.reduce((a,x)=>a+x.right,0):null;
+    h += `<a class="tc" href="#a${t.n}"><span class="no">${t.n}-§</span><span class="tt">${esc(t.title)}</span>
+      <span class="meta"><span class="chip">Matn</span><span class="chip">Taqdimot</span><span class="chip">40 ball</span>${tot!=null?`<span class="chip best">${tot}/40 · «${gradeOf(tot)}»</span>`:''}</span></a>`;
+  }
+  if(list.length) h += '</div></section>';
+  const ml = MTINDEX.filter(t => !f || ('mt-'+t.n+' '+t.title).toLowerCase().includes(f));
+  if(ml.length){
+    h += `<section class="part" id="mtsec"><h2>Mustaqil ta’lim mashg‘ulotlari uchun metodik tavsiyalar</h2><div class="grid" style="margin-top:12px">`;
+    for(const t of ml) h += `<a class="tc" href="#mt${t.n}"><span class="no">MT-${t.n}</span><span class="tt">${esc(t.title)}</span>
+        <span class="meta"><span class="chip">Metodik tavsiya</span><span class="chip">Texnologik yo‘riqnoma</span></span></a>`;
+    h += '</div></section>';
+  }
+  if(!list.length && !ml.length) h += `<p class="empty">«${esc(filter)}» bo‘yicha mavzu topilmadi.</p>`;
+  app.innerHTML = h;
+  const nm=app.querySelector('#nm'), gr=app.querySelector('#gr');
+  nm.oninput=()=>store.set('student',nm.value.trim()); gr.oninput=()=>store.set('group',gr.value.trim());
+  if(onlyMT){ const s=document.getElementById('mtsec'); if(s) s.scrollIntoView(); }
+}
+
+/* ---------------- TOPIC ---------------- */
+let deckState = null;
+async function topic(key, tab){
+  const isMT = key.startsWith('mt'); const n = +key.slice(isMT?2:1);
+  const list = isMT ? MTINDEX : INDEX;
+  const idx = list.findIndex(t=>t.n===n); const meta = list[idx]; if(!meta){ home(); return; }
+  const label = isMT ? 'MT-'+n : n+'-§';
+  document.title = label+'. '+meta.title;
+  const TABS = isMT ? [['matn','Metodik tavsiya'],['yoriqnoma','Texnologik yo‘riqnoma']]
+    : [['matn','Amaliy mashg‘ulot'],['taqdimot','Taqdimot'],['test','Test o‘yini · 20'],['yopiq','Yopiq test · 10'],['vizual','Ko‘rgazmali · 10'],['baholash','Baholash · 40']];
+  const pre = isMT ? 'mt' : 'a';
+  const prev = list[idx-1], next = list[idx+1];
+  app.innerHTML = `<div class="crumb"><a href="#">Mundarija</a><span>›</span><span>${esc(isMT?'Mustaqil ta’lim: metodik tavsiya':meta.bob)}</span></div>
+   <div class="th"><div class="big">${label}</div><h1>${esc(meta.title)}</h1></div>
+   <div class="tabs" role="tablist">${TABS.map(([k,v])=>`<button role="tab" data-tab="${k}" aria-selected="${tab===k}">${v}</button>`).join('')}</div>
+   <div id="pane"><p class="empty">Yuklanmoqda…</p></div>
+   <div class="pager">${prev?`<a class="btn" href="#${pre}${prev.n}">← ${isMT?'MT-'+prev.n:prev.n+'-§'}</a>`:'<span></span>'}${next?`<a class="btn" href="#${pre}${next.n}">${isMT?'MT-'+next.n:next.n+'-§'} →</a>`:''}</div>`;
+  app.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{ location.hash = key+(b.dataset.tab==='matn'?'':'-'+b.dataset.tab); });
+  let d;
+  try{ d = await load(key); }catch(e){ document.getElementById('pane').innerHTML='<p class="empty">Ma’lumotni yuklab bo‘lmadi. Internetni tekshirib, sahifani yangilang.</p>'; return; }
+  d.key = key; d.label = label; d.title = meta.title; d.bob = isMT ? 'Mustaqil ta’lim mavzusi' : meta.bob;
+  const pane = document.getElementById('pane');
+  if(isMT){ renderText({blocks: tab==='yoriqnoma' ? d.yoriqnoma : d.tavsiya}, pane); }
+  else if(tab==='matn') renderText(d, pane);
+  else if(tab==='taqdimot') renderDeck(d, pane);
+  else if(tab==='yopiq') renderClosed(d, pane);
+  else if(tab==='vizual') renderVisual(d, pane);
+  else if(tab==='baholash') renderGrade(d, pane);
+  else renderQuiz(d, pane);
+  window.scrollTo(0,0);
+}
+
+/* ---------------- 40 BALLIK BAHOLASH ---------------- */
+function hash(s){ let h=2166136261>>>0; for(const c of s){ h^=c.codePointAt(0); h=Math.imul(h,16777619)>>>0; } return h.toString(36).toUpperCase().padStart(7,'0').slice(-7); }
+function renderGrade(d, pane){
+  const K=[['test','Test o‘yini',20],['yopiq','Yopiq test',10],['vizual','Ko‘rgazmali test',10]];
+  const R=K.map(([k])=>getRes(d.key,k));
+  const done=R.every(Boolean); const total=R.reduce((a,r)=>a+(r?r.right:0),0);
+  const nextK=K.find(([k],i)=>!R[i]);
+  const name=store.get('student')||'', grp=store.get('group')||'';
+  let h=`<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>${d.label} bo‘yicha baholash</b> · 40 ball</span><span class="spacer"></span><span class="score">${total} / 40</span></div>
+   <p style="color:var(--ink-soft);margin:8px 0 12px">Uchta testni ketma-ket bajaring. Har bir to‘g‘ri javob — 1 ball. Jami ball 5 ballik bahoga aylantiriladi: 35–40 → «5», 29–34 → «4», 23–28 → «3», 22 va kam → «2».</p>
+   <label style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px"><b style="font-family:var(--f-display)">Talaba:</b>
+   <input id="nm" placeholder="Familiya, ism" value="${esc(name)}" style="flex:1 1 200px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit">
+   <input id="gr" placeholder="Guruh" value="${esc(grp)}" style="flex:0 1 120px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit"></label>
+   <div style="display:grid;gap:8px">${K.map(([k,t,mx],i)=>`<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper)">
+     <span style="font-family:var(--f-mono);font-weight:700;color:var(--accent)">${i+1}</span><span style="flex:1;min-width:140px"><b>${t}</b> · ${mx} ball</span>
+     <span class="chip ${R[i]?'best':''}">${R[i]?R[i].right+' / '+mx+' ball':'bajarilmagan'}</span>
+     <a class="btn ${R[i]?'':'primary'}" href="#${d.key}-${k}">${R[i]?'Qayta':'Boshlash'}</a></div>`).join('')}</div>`;
+  if(done){
+    const g=gradeOf(total); const when=new Date(Math.max(...R.map(r=>r.ts)));
+    const ds=when.toLocaleDateString('uz-UZ')+' '+String(when.getHours()).padStart(2,'0')+':'+String(when.getMinutes()).padStart(2,'0');
+    const code=hash([name,grp,d.key,R.map(r=>r.right).join('-'),when.getTime()].join('|'));
+    h+=`<div class="result-card" style="margin-top:16px;border:2px solid var(--blue);border-radius:16px;padding:16px;background:var(--card)">
+      <div style="font-family:var(--f-display);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">Natija kartasi</div>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:8px"><div class="gradebox g${g}" style="margin:0"><div class="gnum">${g}</div><div><b>${total} / 40 ball</b><br>«${GW[g]}»</div></div>
+      <div style="min-width:0;flex:1"><b>${esc(name||'— ism kiritilmagan —')}</b>${grp?' · '+esc(grp):''}<br>${d.label} ${esc(d.title)}<br>
+      Test o‘yini: ${R[0].right}/20 · Yopiq: ${R[1].right}/10 · Ko‘rgazmali: ${R[2].right}/10<br>
+      <span style="color:var(--muted)">${ds} · tekshiruv kodi: <b style="font-family:var(--f-mono)">${code}</b></span></div></div>
+      <p style="margin:10px 0 0;color:var(--ink-soft)">Ushbu kartani o‘qituvchingizga ko‘rsating yoki skrinshot qilib yuboring.</p></div>
+      <p style="margin-top:12px"><button class="btn" id="reset">Barchasini qaytadan topshirish</button></p>`;
+  } else if(nextK){ h+=`<p style="margin-top:14px"><a class="btn red" href="#${d.key}-${nextK[0]}">${nextK[1]}ni boshlash →</a></p>`; }
+  h+='</div>';
+  pane.innerHTML=h;
+  const nm=pane.querySelector('#nm'), gr=pane.querySelector('#gr');
+  nm.onchange=()=>{ store.set('student',nm.value.trim()); renderGrade(d,pane); }; gr.onchange=()=>{ store.set('group',gr.value.trim()); renderGrade(d,pane); };
+  const rs=pane.querySelector('#reset'); if(rs) rs.onclick=()=>{ K.forEach(([k])=>{ try{ localStorage.removeItem(resKey(d.key,k)); }catch(e){} }); renderGrade(d,pane); };
+}
+function stepEnd(d, kind, right, total){
+  saveRes(d.key, kind, right, total);
+  const order=['test','yopiq','vizual']; const i=order.indexOf(kind);
+  const nxt=order.slice(i+1).concat(order.slice(0,i)).find(k=>!getRes(d.key,k));
+  const name={test:'Test o‘yini',yopiq:'Yopiq test',vizual:'Ko‘rgazmali test'};
+  return `<div class="gradebox" style="justify-content:center"><div class="gnum" style="background:var(--blue)">${right}</div><div><b>${right} / ${total} ball</b><br>${name[kind]} natijasi saqlandi</div></div>
+    <p style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">${nxt?`<a class="btn red" href="#${d.key}-${nxt}">${name[nxt]}ga o‘tish →</a>`:''}<a class="btn ${nxt?'':'red'}" href="#${d.key}-baholash">Baholash (40 ball) →</a></p>`;
+}
+
+/* ---------------- CLOSED TESTS ---------------- */
+const KIND = {tf:'To‘g‘ri yoki noto‘g‘ri', match:'Moslashtiring', order:'Ketma-ketlikni tiklang', multi:'Bir nechta to‘g‘ri javob'};
+function renderClosed(d, pane){
+  const items = d.closed || []; let done = 0, okc = 0;
+  pane.innerHTML = `<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>Yopiq test</b> · ${items.length} ta topshiriq · ${items.length} ball</span><span class="spacer"></span><span class="score" id="cs">0 / ${items.length}</span></div>
+    <p style="color:var(--ink-soft);margin:8px 0 0">Har bir topshiriqni bajarib, «Tekshirish» tugmasini bosing. Har bir to‘g‘ri bajarilgan topshiriq — 1 ball.</p></div>
+    <div id="cl" style="display:grid;gap:12px;margin-top:12px;max-width:900px"></div>`;
+  const cl = pane.querySelector('#cl');
+  items.forEach((it, k)=>{
+    const box = document.createElement('div'); box.className='quiz'; box.style.padding='16px';
+    let body = '';
+    if(it.type==='tf') body = `<div class="opts">${['To‘g‘ri','Noto‘g‘ri'].map((t,i)=>`<button class="opt" data-v="${i}"><span class="L">${'AB'[i]}</span><span>${t}</span></button>`).join('')}</div>`;
+    else if(it.type==='multi') body = `<div class="opts">${it.opts.map((t,i)=>`<button class="opt" data-v="${i}"><span class="L">${LT[i]}</span><span>${t}</span></button>`).join('')}</div>`;
+    else if(it.type==='match') body = `<div style="display:grid;gap:8px">${it.left.map((t,i)=>`<label style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:10px;align-items:center"><span><b>${i+1})</b> ${t}</span>
+        <select data-i="${i}" style="font:inherit;padding:8px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-width:0"><option value="">— tanlang —</option>${it.right.map((r,j)=>`<option value="${j}">${LT[j]}) ${strip(r)}</option>`).join('')}</select></label>`).join('')}</div>`;
+    else body = `<ol class="ord" style="display:grid;gap:6px;padding:0;margin:0;list-style:none">${it.items.map((t,i)=>`<li data-v="${i}" style="display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:var(--paper)"><span style="flex:1;min-width:0">${t}</span><button class="iconbtn up" aria-label="Yuqoriga">↑</button><button class="iconbtn dn" aria-label="Pastga">↓</button></li>`).join('')}</ol>`;
+    box.innerHTML = `<p class="qtext" style="font-size:1.05rem;margin-bottom:10px"><span style="color:var(--accent)">${k+1}.</span> <i style="font-weight:500;color:var(--muted)">(${KIND[it.type]})</i> ${it.q}</p>${body}
+      <p style="margin:10px 0 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn primary chk">Tekshirish</button><span class="fb" style="margin:0"></span></p>`;
+    cl.appendChild(box);
+    let sel = null; const picked = new Set();
+    box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      if(box.dataset.done) return;
+      if(it.type==='tf'){ box.querySelectorAll('.opt').forEach(x=>x.style.borderColor=''); b.style.borderColor='var(--blue)'; sel=+b.dataset.v; }
+      else { const v=+b.dataset.v; if(picked.has(v)){ picked.delete(v); b.style.borderColor=''; } else { picked.add(v); b.style.borderColor='var(--blue)'; } }
+    });
+    box.querySelectorAll('.up,.dn').forEach(b=>b.onclick=()=>{ if(box.dataset.done) return; const li=b.closest('li'); if(b.classList.contains('up')){ if(li.previousElementSibling) li.parentNode.insertBefore(li, li.previousElementSibling); } else if(li.nextElementSibling) li.parentNode.insertBefore(li.nextElementSibling, li); });
+    box.querySelector('.chk').onclick=()=>{
+      if(box.dataset.done) return; let ok=false, ans='';
+      if(it.type==='tf'){ if(sel==null) return; ok = (sel===0)===it.a; ans = it.a?'To‘g‘ri':'Noto‘g‘ri';
+        box.querySelectorAll('.opt')[it.a?0:1].classList.add('ok'); if(!ok) box.querySelectorAll('.opt')[sel].classList.add('bad'); }
+      else if(it.type==='multi'){ if(!picked.size) return; const want=new Set(it.a); ok = picked.size===want.size && [...picked].every(v=>want.has(v));
+        box.querySelectorAll('.opt').forEach((x,i)=>{ if(want.has(i)) x.classList.add('ok'); else if(picked.has(i)) x.classList.add('bad'); }); ans = it.a.map(i=>LT[i]).join(', '); }
+      else if(it.type==='match'){ const v=[...box.querySelectorAll('select')].map(x=>x.value); if(v.includes('')) return;
+        ok = v.every((x,i)=>+x===it.a[i]); box.querySelectorAll('select').forEach((x,i)=>{ x.style.borderColor = +x.value===it.a[i]?'var(--ok)':'var(--bad)'; x.disabled=true; });
+        ans = it.a.map((j,i)=>(i+1)+'–'+LT[j]).join(', '); }
+      else { const cur=[...box.querySelectorAll('li')].map(x=>+x.dataset.v); ok = cur.every((x,i)=>x===it.a[i]);
+        box.querySelectorAll('li').forEach((x,i)=>x.style.borderColor = +x.dataset.v===it.a[i]?'var(--ok)':'var(--bad)'); ans = it.a.map(j=>it.items[j]).join(' → '); }
+      box.dataset.done=1; done++; if(ok) okc++;
+      const fb=box.querySelector('.fb'); fb.className='fb '+(ok?'ok':'bad'); fb.innerHTML = ok ? 'To‘g‘ri! +1 ball' : 'Noto‘g‘ri. To‘g‘ri javob: '+ans;
+      pane.querySelector('#cs').textContent = okc+' / '+items.length;
+      if(done===items.length){ const end=document.createElement('div'); end.className='quiz result'; end.innerHTML=`<h2 style="font-family:var(--f-display);margin:0 0 6px">Yopiq test natijasi</h2>${stepEnd(d,'yopiq',okc,items.length)}`; cl.appendChild(end); end.scrollIntoView({behavior:'smooth',block:'center'}); }
+    };
+  });
+}
+
+/* ---------------- VISUAL TESTS ---------------- */
+function renderVisual(d, pane){
+  const items = d.visual || []; let done=0, okc=0;
+  pane.innerHTML = `<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>Ko‘rgazmali test</b> · ${items.length} ta · ${items.length} ball</span><span class="spacer"></span><span class="score" id="vs">0 / ${items.length}</span></div>
+    <p style="color:var(--ink-soft);margin:8px 0 0">Rasmni tahlil qiling va javobni bosing: javob holati shu zahoti ko‘rinadi. Har bir to‘g‘ri javob — 1 ball.</p></div>
+    <div id="vl" style="display:grid;gap:12px;margin-top:12px;max-width:900px"></div>`;
+  const vl = pane.querySelector('#vl');
+  items.forEach((it,k)=>{
+    const box=document.createElement('div'); box.className='quiz'; box.style.padding='16px';
+    box.innerHTML = `<p class="qtext" style="font-size:1.05rem;margin-bottom:10px"><span style="color:var(--accent)">${k+1}.</span> ${it.q}</p>
+      <div class="fig anim-wait" style="margin-bottom:12px">${it.svg}</div>
+      <div class="opts">${it.opts.map((o,i)=>`<button class="opt" data-i="${i}"><span class="L">${LT[i]}</span><span>${o}</span></button>`).join('')}</div><div class="fb"></div>`;
+    vl.appendChild(box);
+    const obs = ('IntersectionObserver' in window) ? new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ animateSVG(box); obs.unobserve(box);} }),{threshold:.3}) : null;
+    if(obs) obs.observe(box); else animateSVG(box);
+    box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      if(box.dataset.done) return; box.dataset.done=1; const i=+b.dataset.i, ok=i===it.a;
+      box.querySelectorAll('.opt').forEach(x=>x.disabled=true); box.querySelectorAll('.opt')[it.a].classList.add('ok'); if(!ok) b.classList.add('bad');
+      const fb=box.querySelector('.fb'); fb.className='fb '+(ok?'ok':'bad'); fb.innerHTML = ok?'To‘g‘ri javob! +1 ball':'Noto‘g‘ri. To‘g‘ri javob: '+LT[it.a]+') '+it.opts[it.a];
+      done++; if(ok) okc++; pane.querySelector('#vs').textContent = okc+' / '+items.length;
+      if(done===items.length){ const end=document.createElement('div'); end.className='quiz result'; end.innerHTML=`<h2 style="font-family:var(--f-display);margin:0 0 6px">Ko‘rgazmali test natijasi</h2>${stepEnd(d,'vizual',okc,items.length)}`; vl.appendChild(end); end.scrollIntoView({behavior:'smooth',block:'center'}); }
+    });
+  });
+}
+
+/* ---------------- TEXT ---------------- */
+function figHTML(b, anim){
+  return `<figure><div class="fig${anim?' anim-wait':''}">${b.svg||''}</div>${b.cap?`<figcaption>${b.cap}</figcaption>`:''}</figure>`;
+}
+function renderText(d, pane){
+  let h = '<article class="doc">', inList=false;
+  const close = ()=>{ if(inList){ h+='</ul>'; inList=false; } };
+  for(const b of d.blocks||[]){
+    if(b.t==='zone'){ close(); h+=`<div class="zone">${b.html}</div>`; continue; }
+    if(b.t==='li'){ if(!inList){ h+='<ul>'; inList=true; } h+=`<li>${b.html}</li>`; continue; }
+    close();
+    if(b.t==='h') h+=`<h3>${b.html}</h3>`;
+    else if(b.t==='fig') h+=figHTML(b,true);
+    else if(b.t==='table') h+=`<div class="tbl">${b.html}</div>`;
+    else if(b.t==='opts') h+=`<div class="optline">${b.html}</div>`;
+    else h+=`<p class="${b.t}">${b.html}</p>`;
+  }
+  close(); h+='</article>';
+  pane.innerHTML = h;
+  const obs = ('IntersectionObserver' in window) ? new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ animateSVG(e.target.parentElement); obs.unobserve(e.target);} }),{threshold:.25}) : null;
+  pane.querySelectorAll('.fig.anim-wait').forEach(f=>{ if(obs) obs.observe(f); else animateSVG(f.parentElement); });
+}
+
+/* ---- slides from blocks ---- */
+function firstSentences(html, max=230){
+  const t = strip(html); if(t.length<=max) return esc(t);
+  const cut = t.slice(0,max); const i = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('; '));
+  return esc(i>80 ? cut.slice(0,i+1) : cut.replace(/\s\S*$/,'')+' …');
+}
+function buildSlides(d){
+  const S = []; const secs=[]; let cur=null;
+  for(const b of d.blocks){ if(b.t==='h'){ cur={h:b.html, z:b.z, items:[]}; secs.push(cur); } else if(cur && b.t!=='zone') cur.items.push(b); }
+  S.push({cls:'title-slide', html:`<div class="sec rv">${d.label} · Amaliy mashg‘ulot</div><h2 class="rv">${esc(d.title)}</h2><p class="rv" style="color:var(--muted)">${esc(d.bob)}</p>
+     <div class="outline rv">${secs.map(s=>`<span class="chip">${esc(strip(s.h).replace(/^\d+\.\d+\.\s*/,''))}</span>`).join('')}</div>`});
+  // groups: lead block (mis/case/w/ref) + following
+  for(const s of secs){
+    const it=s.items; const kick=strip(s.h).replace(/^\d+\.\d+\.\s*/,'');
+    if(s.z==='nazariya'){
+      const ps=it.filter(b=>['p','box'].includes(b.t)).slice(0,4); const fig=it.find(b=>b.t==='fig');
+      S.push({html:`<div class="kicker">${kick}</div><h2>Tayanch tushunchalar</h2><div class="cols ${fig?'':'one'}"><ul>${ps.map(p=>`<li class="rv">${firstSentences(p.html)}</li>`).join('')}</ul>${fig?`<div class="rv">${figHTML(fig,true)}</div>`:''}</div>`});
+      continue;
+    }
+    const groups=[]; let g=null;
+    for(const b of it){ if(['mis','case','wq','ref'].includes(b.t)){ g={lead:b, rest:[]}; groups.push(g); } else if(g) g.rest.push(b); }
+    const lim = s.z==='keys'?5: s.z==='dunyo'?5: 4;
+    groups.slice(0,lim).forEach(gr=>{
+      const fig=gr.rest.find(b=>b.t==='fig'); const parts=gr.rest.filter(b=>['yech','p','vaz','savol','tex','opts'].includes(b.t)).slice(0,4);
+      const jav=gr.rest.find(b=>b.t==='jav');
+      S.push({html:`<div class="kicker">${kick}</div><div class="cols ${fig?'':'one'}"><div style="display:grid;gap:8px"><p class="rv" style="font-weight:600">${gr.lead.html}</p>
+        ${parts.map(p=>`<p class="rv" style="${p.t==='yech'?'border-left:3px solid var(--blue);padding-left:10px':''}">${p.html}</p>`).join('')}
+        ${jav?`<div class="answer rv">✔ ${jav.html}</div>`:''}</div>${fig?`<div class="rv">${figHTML(fig,true)}</div>`:''}</div>`});
+    });
+  }
+  const pick=[0,7,14].map(i=>d.tests[i]).filter(Boolean);
+  pick.forEach((t,k)=>S.push({quiz:t, html:`<div class="kicker">Tezkor savol ${k+1}/3</div><h2 style="font-size:clamp(1rem,2.2vw,1.5rem)">${t.q}</h2>
+     <div class="opts">${t.o.map((o,i)=>`<button class="opt" data-i="${i}"><span class="L">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div><div class="fb"></div>`}));
+  S.push({cls:'title-slide', html:`<div class="kicker">Yakun</div><h2>${d.label} taqdimoti tugadi</h2>
+     <p class="rv">Endi 40 ballik baholashdan o‘ting: test o‘yini (20), yopiq test (10), ko‘rgazmali test (10).</p>
+     <p class="rv"><a class="btn red" href="#${d.key}-baholash">Baholashni boshlash →</a></p>`});
+  return S;
+}
+function animateSVG(container){
+  container.querySelectorAll('.anim-wait').forEach(f=>{
+    f.classList.remove('anim-wait'); f.classList.add('anim');
+    const svg=f.querySelector('svg'); if(!svg) return;
+    const groups=[...svg.querySelectorAll('g[id^="patch_"],g[id^="line2d_"],g[id^="text_"],g[id^="PolyCollection"],g[id^="LineCollection"],g[id^="PathCollection"]')]
+      .filter(g=>!g.parentElement.closest('g[id^="patch_"],g[id^="text_"],g[id^="line2d_"]'));
+    groups.forEach((g,i)=>{ g.classList.add('ag'); g.style.animationDelay=(Math.min(i,40)*55)+'ms'; });
+    svg.querySelectorAll('path').forEach((p,i)=>{
+      const st=p.getAttribute('style')||''; if(/stroke:\s*none/.test(st) || !/stroke/.test(st)) return;
+      if(/fill:\s*(?!none)/.test(st) && !/fill-opacity:\s*0[.;]/.test(st)) return;
+      try{ const L=p.getTotalLength(); if(!L||L<4) return; p.style.strokeDasharray=L; p.style.strokeDashoffset=L; p.classList.add('dr'); p.style.animationDelay=(200+Math.min(i,40)*45)+'ms'; }catch(e){}
+    });
+  });
+}
+
+function renderDeck(d, pane){
+  const S = buildSlides(d);
+  pane.innerHTML = `<div class="deck"><div class="stage" id="stage" tabindex="0" aria-roledescription="taqdimot">
+     ${S.map((s,i)=>`<section class="slide ${s.cls||''}${s.quiz?' qq':''}" data-i="${i}" data-ans="${s.quiz?s.quiz.a:''}" hidden>${s.html}</section>`).join('')}</div>
+   <div class="deckbar"><button class="iconbtn" id="prev" aria-label="Oldingi slayd">←</button><button class="iconbtn" id="next" aria-label="Keyingi qadam">→</button>
+     <span class="cnt" id="cnt"></span><span class="prog"><i id="pbar"></i></span>
+     <button class="iconbtn" id="auto">▶ Avto</button><button class="iconbtn" id="fs">⛶ To‘liq ekran</button></div>
+   <p class="empty" style="font-size:.85rem;margin-top:8px">Boshqarish: → / bo‘sh joy — keyingi qadam, ← — orqaga; telefon ekranida suring.</p></div>`;
+  const stage = pane.querySelector('#stage'), slides=[...stage.querySelectorAll('.slide')];
+  const st = {i:0, step:0, timer:null}; deckState=st;
+  const reveals = s => [...s.querySelectorAll('.rv')];
+  function show(i, step=0){
+    st.i=Math.max(0,Math.min(slides.length-1,i)); slides.forEach((s,k)=>s.hidden=k!==st.i);
+    const s=slides[st.i]; const rv=reveals(s);
+    // first reveal group: everything up to the first item of a list or steam list
+    const auto = s.classList.contains('title-slide') ? rv.length : Math.max(1, Math.min(rv.length, 2));
+    st.step = step==='all' ? rv.length : Math.max(step, auto);
+    rv.forEach((r,k)=>r.classList.toggle('on', k<st.step));
+    animateSVG(s);
+    pane.querySelector('#cnt').textContent=(st.i+1)+' / '+slides.length;
+    pane.querySelector('#pbar').style.width=((st.i+1)/slides.length*100)+'%';
+    setupQQ(s);
+  }
+  function next(){ const rv=reveals(slides[st.i]); if(st.step<rv.length){ st.step++; rv.forEach((r,k)=>r.classList.toggle('on',k<st.step)); } else if(st.i<slides.length-1) show(st.i+1); else stopAuto(); }
+  function prev(){ if(st.i>0) show(st.i-1,'all'); }
+  function stopAuto(){ clearInterval(st.timer); st.timer=null; pane.querySelector('#auto').textContent='▶ Avto'; }
+  pane.querySelector('#next').onclick=next; pane.querySelector('#prev').onclick=prev;
+  pane.querySelector('#auto').onclick=()=>{ if(st.timer){ stopAuto(); return; } st.timer=setInterval(next,2600); pane.querySelector('#auto').textContent='⏸ To‘xtatish'; };
+  pane.querySelector('#fs').onclick=()=>{ try{ if(document.fullscreenElement) document.exitFullscreen(); else stage.requestFullscreen().catch(()=>{}); }catch(e){} };
+  stage.addEventListener('click',e=>{ if(e.target.closest('button,a')) return; next(); });
+  let x0=null; stage.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+  stage.addEventListener('touchend',e=>{ if(x0==null) return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50){ dx<0?next():prev(); } x0=null; });
+  document.onkeydown = e=>{ if(!document.getElementById('stage')) return; if(['ArrowRight',' ','PageDown'].includes(e.key)){ e.preventDefault(); next(); } if(['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); } };
+  show(0);
+}
+function setupQQ(s){
+  if(s.dataset.ans==='' || s.dataset.ready) return; s.dataset.ready=1;
+  const right=+s.dataset.ans, btns=[...s.querySelectorAll('.opt')], fb=s.querySelector('.fb');
+  btns.forEach(b=>b.onclick=e=>{ e.stopPropagation(); const i=+b.dataset.i;
+    btns.forEach(x=>x.disabled=true); btns[right].classList.add('ok');
+    if(i!==right){ b.classList.add('bad'); fb.className='fb bad'; fb.textContent='Noto‘g‘ri. To‘g‘ri javob: '+'ABCD'[right]+'.'; }
+    else { fb.className='fb ok'; fb.textContent='To‘g‘ri! Davom eting →'; } });
+}
+
+
+/* ---------------- QUIZ ---------------- */
+function renderQuiz(d, pane){
+  const Q = d.tests; const r = getRes(d.key,'test');
+  pane.innerHTML = `<div class="quiz result"><div class="kicker" style="font-family:var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-size:.75rem">Test o‘yini · 20 ball</div>
+    <h2 style="font-family:var(--f-display);font-size:1.6rem;margin:6px 0 10px">${Q.length} savol · har biriga 1 daqiqa</h2>
+    <p style="color:var(--ink-soft);max-width:58ch;margin:0 auto 16px">Har bir to‘g‘ri javob baholashda 1 ball beradi (jami 20 ball). O‘yin ochkosi: to‘g‘ri javob — 100, tez javob uchun +50 gacha bonus, ketma-ket to‘g‘ri javoblar seriyasi uchun qo‘shimcha ochko.</p>
+    ${r?`<p class="chip best" style="display:inline-block">Oxirgi natija: ${r.right} / 20 ball</p>`:''}
+    <p><button class="btn red" id="go">O‘yinni boshlash</button></p></div>`;
+  pane.querySelector('#go').onclick=()=>playQuiz(d, pane);
+}
+function playQuiz(d, pane){
+  const Q = d.tests.map((q,i)=>({...q, i})); let k=0, score=0, streak=0, right=0; const res=[]; let tm=null, left=60;
+  function draw(){
+    const q=Q[k]; left=60;
+    pane.innerHTML = `<div class="quiz"><div class="qhead"><span>Savol <b>${k+1}</b> / ${Q.length}</span><span class="spacer"></span>
+      <span class="streak">${streak>=2?'🔥 Seriya ×'+streak:''}</span><span class="score" id="sc">${score}</span></div>
+      <div class="dots">${Q.map((_,i)=>`<span class="${i<k?(res[i].ok?'ok':'bad'):(i===k?'cur':'')}"></span>`).join('')}</div>
+      <div class="timer"><i id="tb" style="width:100%"></i></div>
+      <p class="qtext">${q.q}</p>
+      <div class="opts">${q.o.map((o,i)=>`<button class="opt" data-i="${i}"><span class="L">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div>
+      <div class="fb" id="fb"></div><div id="nx"></div></div>`;
+    pane.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.i,b));
+    clearInterval(tm); tm=setInterval(()=>{ left--; const tb=pane.querySelector('#tb'); if(!tb){clearInterval(tm);return;}
+      tb.style.width=(left/60*100)+'%'; if(left<=20) tb.style.background='var(--warn)'; if(left<=10) tb.style.background='var(--bad)';
+      if(left<=0){ clearInterval(tm); answer(-1,null); } },1000);
+  }
+  function answer(i,btn){
+    clearInterval(tm); const q=Q[k]; const ok=i===q.a; const opts=[...pane.querySelectorAll('.opt')];
+    opts.forEach(b=>b.disabled=true); opts[q.a].classList.add('ok'); if(btn && !ok) btn.classList.add('bad');
+    let gain=0;
+    if(ok){ streak++; right++; gain=100+Math.round(Math.max(0,left)/60*50)+(streak>=3?25*(streak-2):0); score+=gain;
+      if(btn){ const r=btn.getBoundingClientRect(); const s=document.createElement('div'); s.className='burst'; s.textContent='+'+gain; s.style.left=(r.left+r.width/2)+'px'; s.style.top=r.top+'px'; document.body.appendChild(s); setTimeout(()=>s.remove(),1000); } }
+    else streak=0;
+    res.push({ok, i, q});
+    const fb=pane.querySelector('#fb'); fb.className='fb '+(ok?'ok':'bad');
+    fb.textContent = ok ? (streak>=3?`Ajoyib! ${streak} ta ketma-ket to‘g‘ri (+${gain})`:`To‘g‘ri! +${gain} ochko`) : (i<0?`Vaqt tugadi. To‘g‘ri javob: ${'ABCD'[q.a]}`:`Noto‘g‘ri. To‘g‘ri javob: ${'ABCD'[q.a]}`);
+    pane.querySelector('#sc').textContent=score;
+    pane.querySelector('#nx').innerHTML=`<p style="margin-top:10px"><button class="btn primary" id="nb">${k<Q.length-1?'Keyingi savol →':'Natijani ko‘rish'}</button></p>`;
+    const nb=pane.querySelector('#nb'); nb.focus(); nb.onclick=()=>{ k++; k<Q.length?draw():finish(); };
+  }
+  function finish(){
+    const stars = right>=18?3:right>=14?2:right>=10?1:0;
+    const wrong=res.filter(r=>!r.ok);
+    pane.innerHTML = `<div class="quiz result"><div class="stars">${[0,1,2].map(i=>`<span class="${i<stars?'':'off'}">★</span>`).join('')}</div>
+      ${stepEnd(d,'test',right,Q.length)}
+      <p class="score" style="font-size:1.05rem">O‘yin ochkosi: ${score}</p>
+      <p><button class="btn" id="again">Qayta o‘ynash</button></p>
+      ${wrong.length?`<div class="review"><h3 style="font-family:var(--f-display);margin:8px 0 0">Xatolar ustida ishlash (${wrong.length})</h3>${wrong.map(r=>`<div class="r"><b>${r.q.i+1}.</b> ${r.q.q}<br><span style="color:var(--bad)">${r.i<0?'Javob berilmadi':'Sizning javobingiz: '+'ABCD'[r.i]+') '+r.q.o[r.i]}</span><br><span style="color:var(--ok)">To‘g‘ri javob: ${'ABCD'[r.q.a]}) ${r.q.o[r.q.a]}</span></div>`).join('')}</div>`:''}</div>`;
+    pane.querySelector('#again').onclick=()=>playQuiz(d,pane);
+  }
+  draw();
+}
+
+/* ---------------- ROUTER ---------------- */
+function route(){
+  const h=location.hash.replace('#','');
+  const m=h.match(/^(a|mt)(\d+)(?:-(taqdimot|test|yopiq|vizual|baholash|yoriqnoma))?$/);
+  if(m) topic(m[1]+m[2], m[3]||'matn'); else home(document.getElementById('q').value);
+}
+document.getElementById('q').addEventListener('input',e=>{ if(location.hash && !['#','#mundarija','#mt'].includes(location.hash)){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(err){} } home(e.target.value); });
+window.addEventListener('hashchange',route);
+route();
+
+</script>
+</body>
+</html>
