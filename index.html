@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="«Boshlang‘ich matematika kursi nazariyasi» o‘quv qo‘llanmasining elektron ilovasi: amaliy mashg‘ulot matni, taqdimot va 40 ballik baholash.">
+<meta name="description" content="«Boshlang‘ich matematika kursi nazariyasi» o‘quv qo‘llanmasining elektron ilovasi: amaliy mashg‘ulot matni, taqdimot, testlar va 8 ballik joriy nazorat.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Qo‘llanma ilovasi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@500;700&family=Tinos:ital,wght@0,400;0,700;1,400&display=swap">
 <style>
 /* Layout: daftar (kataklik qog‘oz) — chap hoshiya chizig‘i, siyoh ko‘k matn, qizil hoshiya aksenti */
 :root{
@@ -177,6 +177,112 @@ th{background:var(--tint);font-family:var(--f-display)}
   .opts,.qq .opts{grid-template-columns:minmax(0,1fr)}
   body{font-size:16px}
 }
+
+/* ---------- talaba ma’lumotlari va joriy nazorat ---------- */
+.stu{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:10px}
+.stu label{display:grid;gap:4px;min-width:0}
+.stu label span{font-family:var(--f-display);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stu input{width:100%;min-width:0;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit}
+@media (max-width:560px){.stu{grid-template-columns:1fr}}
+.jn-card{border:2px solid var(--blue);border-radius:16px;padding:16px;background:var(--card);margin-top:14px}
+.jn-k{font-family:var(--f-display);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.jn-dl{display:grid;gap:6px;margin:10px 0 12px}
+.jn-dl>div{display:grid;grid-template-columns:minmax(120px,240px) minmax(0,1fr);gap:10px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.jn-dl dt{font-family:var(--f-display);font-weight:700;color:var(--ink-soft)}
+.jn-dl dt small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+.jn-dl dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.jn-dl .big dd b{font-family:var(--f-mono);font-size:2.2rem;color:var(--blue);font-variant-numeric:tabular-nums}
+.jn-dl .big dd span{font-family:var(--f-mono);color:var(--muted);font-size:1.1rem}
+@media (max-width:560px){.jn-dl>div{grid-template-columns:1fr;gap:2px}}
+.jn-bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.jn-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--ok));border-radius:99px;transition:width .6s}
+.jn-meta{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:10px;font-size:.88rem;color:var(--ink-soft);font-family:var(--f-display)}
+.mono{font-family:var(--f-mono)}
+.miss{color:var(--muted);font-style:italic}
+.jn-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.jn-wrap{max-width:980px}
+.jn-note{color:var(--ink-soft);font-size:.92rem;margin:12px 0}
+.jn-t{width:100%;min-width:560px}
+.jn-t td.tl,.jn-t th:nth-child(2){text-align:left}
+.jn-t tr.done td{background:color-mix(in srgb,var(--ok-bg) 55%,transparent)}
+.jn-t small{color:var(--muted)}
+.krow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper)}
+.krow .kn{font-family:var(--f-mono);font-weight:700;color:var(--accent)}
+.topic-res{margin-top:14px;border-radius:14px;background:var(--ok-bg);color:var(--ok);padding:12px 16px;font-family:var(--f-display)}
+.topic-res .kk{display:block;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.topic-res b{font-family:var(--f-mono);font-size:1.6rem}
+.jn-mini{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;max-width:420px;margin:0 auto 10px;font-family:var(--f-display);text-align:left}
+.jn-mini b{font-family:var(--f-mono);color:var(--blue)}
+.jn-mini i{grid-column:1/-1;height:8px;border-radius:99px;background:linear-gradient(90deg,var(--blue) var(--w),var(--line) var(--w))}
+.jnhome{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:10px 0 6px}
+.jnhome a{display:grid;gap:4px;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:12px 14px}
+.jnhome a:hover{border-color:var(--blue)}
+.jnhome .v{font-family:var(--f-mono);font-size:1.5rem;color:var(--blue);font-weight:700}
+.jnhome .l{font-family:var(--f-display);font-size:.78rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.navjn{font-family:var(--f-display);font-weight:700;text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:7px 12px;color:var(--ink);white-space:nowrap}
+@media print{
+  header.top,.noprint,.jn-tabs,.crumb,.stu{display:none!important}
+  body{background:#fff}
+  .quiz{border:0!important;box-shadow:none!important}
+}
+/* ---------- taqdimot: to‘liq matn, avtomatik moslash ---------- */
+.slide{--k:1}
+.slide h2{font-size:calc(var(--k,1)*clamp(1.2rem,3vw,2.2rem))}
+.slide p,.slide li,.slide .answer,.slide .sbox,.slide .optline,.slide td,.slide th{font-size:calc(var(--k,1)*clamp(.9rem,1.85vw,1.32rem));line-height:1.42}
+.slide .flow{display:grid;gap:calc(var(--k,1)*8px);align-content:start;min-width:0}
+.slide .lead{font-weight:600;background:var(--tint);border-radius:10px;padding:8px 12px}
+.slide .lead.cont{opacity:.85}
+.slide .muted{color:var(--muted);font-weight:500}
+.slide .sy{border-left:3px solid var(--blue);padding-left:10px}
+.slide .sv{border-left:3px solid var(--warn);padding-left:10px}
+.slide .sbox{border:1.5px solid var(--blue);border-radius:10px;padding:8px 12px}
+.slide .optline{display:flex;flex-wrap:wrap;gap:6px}
+.slide .optline span{border:1px solid var(--line);border-radius:8px;padding:2px 8px}
+.slide .tbl{margin:0}
+.slide .tbl table{min-width:0}
+.slide .figc .fig svg{max-height:calc(var(--k,1)*min(58vh,480px))}
+.slide .cols{align-items:center}
+.slide .kicker{display:flex;gap:10px;align-items:center}
+.slide .kicker .pgn{margin-left:auto;font-family:var(--f-mono);color:var(--muted);letter-spacing:0}
+.slide .card{background:var(--tint);border-radius:14px;padding:12px 16px}
+.slide .card h4{font-family:var(--f-display);margin:0 0 6px}
+.slide ol.plan{margin:0;padding-left:20px;display:grid;gap:6px}
+.title-slide ol.outline{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:6px}
+.title-slide ol.outline li{font-family:var(--f-display);font-size:calc(var(--k,1)*.85rem);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px;display:flex;gap:8px}
+.title-slide ol.outline li span{font-family:var(--f-mono);color:var(--accent);font-weight:700}
+.slide.divider{justify-content:center;align-items:flex-start;background:radial-gradient(120% 90% at 100% 0%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%),linear-gradient(135deg,var(--tint),var(--card))}
+.divider .dv-ic{font-size:clamp(1.6rem,4vw,2.6rem);color:var(--accent)}
+.divider .dv-no{font-family:var(--f-mono);font-weight:700;font-size:clamp(2.6rem,9vw,6rem);line-height:.9;color:var(--blue)}
+.divider h2{font-size:clamp(1.3rem,3.4vw,2.4rem)}
+.divider .dv-sub{color:var(--muted);font-family:var(--f-display)}
+.slide .tech{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.slide .tcard{display:grid;gap:4px;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:10px 12px;background:var(--paper);font-size:calc(var(--k,1)*clamp(.85rem,1.6vw,1.12rem))}
+.slide .tcard b{font-family:var(--f-display)}
+.slide .tcard.ai{border-left-color:var(--accent)}
+.slide .news{display:grid;gap:10px}
+.slide .ncard{display:grid;grid-template-columns:minmax(120px,170px) minmax(0,1fr);gap:12px;align-items:start;border-bottom:1px dashed var(--line);padding-bottom:8px}
+.slide .ncard .nd{font-family:var(--f-mono);font-weight:700;color:var(--accent);font-size:calc(var(--k,1)*.9rem)}
+@media (max-width:620px){.slide .ncard{grid-template-columns:1fr;gap:2px}}
+@keyframes slin{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+@keyframes slback{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:none}}
+.slide.enter{animation:slin .42s cubic-bezier(.2,.8,.2,1)}
+.slide.back{animation:slback .42s cubic-bezier(.2,.8,.2,1)}
+@media (prefers-reduced-motion:reduce){.slide.enter,.slide.back{animation:none}.rv{transition:none}}
+.ovw{position:absolute;inset:0;z-index:4;background:color-mix(in srgb,var(--card) 96%,transparent);backdrop-filter:blur(6px);display:flex;flex-direction:column;padding:14px;gap:10px}
+.ovw-h{display:flex;justify-content:space-between;align-items:center;font-family:var(--f-display)}
+.ovw-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;overflow:auto;padding-bottom:10px}
+.ovw-i{text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:8px 10px;font-family:var(--f-display);font-size:.8rem;line-height:1.3;display:flex;gap:8px;align-items:flex-start;min-height:52px}
+.ovw-i span{font-family:var(--f-mono);color:var(--muted)}
+.ovw-i.dv{border-left:4px solid var(--accent);font-weight:700}
+.ovw-i.cur{outline:2px solid var(--blue)}
+body.print-deck header.top,body.print-deck .tabs,body.print-deck .crumb,body.print-deck .th,body.print-deck .deckbar,body.print-deck .pager,body.print-deck .deck>p,body.print-deck .ovw{display:none!important}
+@media print{
+  body.print-deck .stage{border:0;box-shadow:none;aspect-ratio:auto;overflow:visible}
+  body.print-deck .slide{position:relative;inset:auto;height:auto;min-height:0;overflow:visible;page-break-after:always;break-after:page;animation:none}
+  body.print-deck .slide[hidden]{display:flex!important}
+  body.print-deck .rv{opacity:1;transform:none}
+  @page{size:A4 landscape;margin:12mm}
+}
 </style>
 
 <style>
@@ -193,6 +299,7 @@ th{background:var(--tint);font-family:var(--f-display)}
 <header class="top"><div class="wrap">
   <a class="brand" href="#"><span class="mk">§</span><span>Boshlang‘ich matematika<small>O‘quv qo‘llanma ilovasi</small></span></a>
   <span class="spacer"></span>
+  <a class="navjn" href="#jn1">Joriy nazorat · 8 ball</a>
   <div class="search"><input id="q" type="search" placeholder="Mavzu qidirish…" aria-label="Mavzu qidirish"></div>
 </div></header>
 <main class="wrap" id="app"><p class="empty">Yuklanmoqda…</p></main>
@@ -215,15 +322,13 @@ const partOf = n => n<=18?1:n<=36?2:3;
 const mtPartOf = n => n<=15?1:n<=30?2:3;
 function loadPart(p){
   if(LOADED[p]) return LOADED[p];
-  LOADED[p] = new Promise((res,rej)=>{ const s=document.createElement('script'); s.src='q'+p+'.js?v=1793418590'; s.onload=()=>res(); s.onerror=()=>{ delete LOADED[p]; rej(); }; document.head.appendChild(s); });
+  LOADED[p] = new Promise((res,rej)=>{ const s=document.createElement('script'); s.src='q'+p+'.js?v=1793928063'; s.onload=()=>res(); s.onerror=()=>{ delete LOADED[p]; rej(); }; document.head.appendChild(s); });
   return LOADED[p];
 }
 async function load(key){
   if(QD[key]) return QD[key];
   const n=+key.replace(/\D/g,''); await loadPart(key.startsWith('mt')?mtPartOf(n):partOf(n)); return QD[key];
 }
-function gradeOf(total){ return total>=35?5:total>=29?4:total>=23?3:2; }
-const GW = {5:'a’lo',4:'yaxshi',3:'qoniqarli',2:'qoniqarsiz'};
 function resKey(key,kind){ return 'res:'+key+':'+kind; }
 function saveRes(key,kind,right,total){ store.set(resKey(key,kind), {right,total,ts:Date.now()}); }
 function getRes(key,kind){ return store.get(resKey(key,kind)); }
@@ -233,21 +338,20 @@ function home(filter=''){
   document.title = 'O‘quv qo‘llanma ilovasi';
   const f = filter.trim().toLowerCase();
   const onlyMT = location.hash==='#mt';
-  let h = `<section class="hero"><div><h1>Amaliy mashg‘ulot: <em>matn</em>, <em>taqdimot</em>, <em>40 ballik baholash</em></h1>
-  <p>«Boshlang‘ich matematika kursi nazariyasi» o‘quv qo‘llanmasining elektron ilovasi. Har bir mavzu: amaliy mashg‘ulot matni, taqdimot, 20 savollik test o‘yini (20 ball), yopiq test (10 ball) va ko‘rgazmali test (10 ball). Natija kartasini o‘qituvchingizga ko‘rsating.</p></div>
+  let h = `<section class="hero"><div><h1>Amaliy mashg‘ulot: <em>matn</em>, <em>taqdimot</em>, <em>8 ballik joriy nazorat</em></h1>
+  <p>«Boshlang‘ich matematika kursi nazariyasi» o‘quv qo‘llanmasining elektron ilovasi. Har bir mavzu: amaliy mashg‘ulot matni, to‘liq taqdimot, 20 savollik test o‘yini, yopiq test (10) va ko‘rgazmali test (10). Har bir qo‘llanma bo‘yicha amaliy mashg‘ulot joriy nazorati — 8 ball: u mavzular va savollarga teng taqsimlanadi, natija avtomatik jamlanadi.</p></div>
   <div class="stats"><div class="stat"><b>${INDEX.length}</b><span>mavzu</span></div><div class="stat"><b>${INDEX.length*40}</b><span>test savoli</span></div><div class="stat"><b>${MTINDEX.length}</b><span>MT yo‘riqnoma</span></div></div></section>
-  <div class="namebox quiz" style="max-width:900px;margin-bottom:8px"><label style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><b style="font-family:var(--f-display)">Talaba:</b>
-   <input id="nm" placeholder="Familiya, ism" value="${esc(store.get('student')||'')}" style="flex:1 1 200px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit">
-   <input id="gr" placeholder="Guruh" value="${esc(store.get('group')||'')}" style="flex:0 1 120px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit"></label></div>`;
+  <div class="quiz" style="max-width:980px;margin-bottom:8px">${studentFields('h')}
+   <div class="jnhome">${[1,2,3].map(p=>{ const S=partScore(p); return `<a href="#jn${p}"><span class="l">Joriy nazorat · ${PART_NAME[p]}</span><span class="v">${fmtB(S.ball)} / 8</span><span class="chip">${S.done} / ${S.N} mavzu bajarilgan</span></a>`; }).join('')}</div></div>`;
   let part='', bob='';
   const list = onlyMT ? [] : INDEX.filter(t => !f || (t.n+' '+t.title).toLowerCase().includes(f));
   for(const t of list){
     if(t.part!==part){ if(part) h+='</div></section>'; part=t.part; h+=`<section class="part"><h2>${esc(part)}</h2>`; bob=''; }
     if(t.bob!==bob){ if(bob) h+='</div>'; bob=t.bob; const m=bob.match(/^(\d+-BOB)\.?\s*(.*)$/);
       h+=`<div class="bob"><span class="bn">${m?m[1]:''}</span><span>${esc(m?m[2]:bob)}</span></div><div class="grid">`; }
-    const r=['test','yopiq','vizual'].map(k=>getRes('a'+t.n,k)); const tot=r.every(Boolean)?r.reduce((a,x)=>a+x.right,0):null;
+    const ts=topicScore(t.n);
     h += `<a class="tc" href="#a${t.n}"><span class="no">${t.n}-§</span><span class="tt">${esc(t.title)}</span>
-      <span class="meta"><span class="chip">Matn</span><span class="chip">Taqdimot</span><span class="chip">40 ball</span>${tot!=null?`<span class="chip best">${tot}/40 · «${gradeOf(tot)}»</span>`:''}</span></a>`;
+      <span class="meta"><span class="chip">Matn</span><span class="chip">Taqdimot</span>${ts.done?`<span class="chip best">${fmtB(ts.ball)} / ${fmtB(ts.share)} ball</span>`:`<span class="chip">${ts.doneCnt?ts.doneCnt+'/3 test · ':''}${fmtB(ts.share)} ball</span>`}</span></a>`;
   }
   if(list.length) h += '</div></section>';
   const ml = MTINDEX.filter(t => !f || ('mt-'+t.n+' '+t.title).toLowerCase().includes(f));
@@ -259,8 +363,7 @@ function home(filter=''){
   }
   if(!list.length && !ml.length) h += `<p class="empty">«${esc(filter)}» bo‘yicha mavzu topilmadi.</p>`;
   app.innerHTML = h;
-  const nm=app.querySelector('#nm'), gr=app.querySelector('#gr');
-  nm.oninput=()=>store.set('student',nm.value.trim()); gr.oninput=()=>store.set('group',gr.value.trim());
+  bindStudent(app, ()=>{ const g=app.querySelector('.jnhome'); });
   if(onlyMT){ const s=document.getElementById('mtsec'); if(s) s.scrollIntoView(); }
 }
 
@@ -273,7 +376,7 @@ async function topic(key, tab){
   const label = isMT ? 'MT-'+n : n+'-§';
   document.title = label+'. '+meta.title;
   const TABS = isMT ? [['matn','Metodik tavsiya'],['yoriqnoma','Texnologik yo‘riqnoma']]
-    : [['matn','Amaliy mashg‘ulot'],['taqdimot','Taqdimot'],['test','Test o‘yini · 20'],['yopiq','Yopiq test · 10'],['vizual','Ko‘rgazmali · 10'],['baholash','Baholash · 40']];
+    : [['matn','Amaliy mashg‘ulot'],['taqdimot','Taqdimot'],['test','Test o‘yini · 20'],['yopiq','Yopiq test · 10'],['vizual','Ko‘rgazmali · 10'],['baholash','Baholash · 8 ball']];
   const pre = isMT ? 'mt' : 'a';
   const prev = list[idx-1], next = list[idx+1];
   app.innerHTML = `<div class="crumb"><a href="#">Mundarija</a><span>›</span><span>${esc(isMT?'Mustaqil ta’lim: metodik tavsiya':meta.bob)}</span></div>
@@ -296,57 +399,123 @@ async function topic(key, tab){
   window.scrollTo(0,0);
 }
 
-/* ---------------- 40 BALLIK BAHOLASH ---------------- */
+/* ---------------- 8 BALLIK JORIY NAZORAT ---------------- */
+/* Har bir qo‘llanma (qism) bo‘yicha amaliy mashg‘ulot joriy nazorati — 8 ball.
+   8 ball qismdagi mavzular soniga teng bo‘linadi; mavzu ichida esa savollar soniga mutanosib
+   (test o‘yini 20, yopiq test 10, ko‘rgazmali test 10 savol). Mavzu to‘liq bajarilganda ball jamg‘ariladi;
+   test qayta topshirilsa, oxirgi natija hisobga olinadi. */
+const JN_MAX = 8;
+const KINDS = [['test','Test o‘yini',20],['yopiq','Yopiq test',10],['vizual','Ko‘rgazmali test',10]];
+const PART_NAME = {1:'I qism',2:'II qism',3:'III qism'};
+const partTopics = p => INDEX.filter(t=>partOf(t.n)===p);
+const fmtB = (v,nd=2) => (Math.round(v*Math.pow(10,nd))/Math.pow(10,nd)).toFixed(nd).replace('.',',');
+function topicShare(n){ return JN_MAX/partTopics(partOf(n)).length; }
+function topicScore(n){
+  const key='a'+n, share=topicShare(n);
+  const R=KINDS.map(([k,,mx])=>{ const r=getRes(key,k); return r?{right:r.right,total:r.total||mx,ts:r.ts}:null; });
+  const doneCnt=R.filter(Boolean).length, done=doneCnt===KINDS.length;
+  const right=R.reduce((a,r)=>a+(r?r.right:0),0), total=KINDS.reduce((a,[,,mx],i)=>a+(R[i]?R[i].total:mx),0);
+  const ball = done ? share*right/total : 0;
+  const part = R.map((r,i)=>r? share*r.right/total : 0);   // har bir test ulushi (ko‘rsatish uchun)
+  return {n,key,share,R,doneCnt,done,right,total,ball,part};
+}
+function partScore(p){
+  const T=partTopics(p).map(t=>topicScore(t.n));
+  const ball=T.reduce((a,t)=>a+t.ball,0);
+  const ts=Math.max(0,...T.flatMap(t=>t.R.filter(Boolean).map(r=>r.ts)));
+  return {p,T,ball,done:T.filter(t=>t.done).length,started:T.filter(t=>t.doneCnt>0&&!t.done).length,N:T.length,ts};
+}
 function hash(s){ let h=2166136261>>>0; for(const c of s){ h^=c.codePointAt(0); h=Math.imul(h,16777619)>>>0; } return h.toString(36).toUpperCase().padStart(7,'0').slice(-7); }
+function stamp(ts){ if(!ts) return '—'; const w=new Date(ts); return w.toLocaleDateString('uz-UZ')+' '+String(w.getHours()).padStart(2,'0')+':'+String(w.getMinutes()).padStart(2,'0'); }
+function studentFields(id=''){
+  return `<div class="stu"><label><span>Guruh</span><input id="gr${id}" placeholder="masalan, 101-guruh" value="${esc(store.get('group')||'')}" autocomplete="off"></label>
+   <label class="wide"><span>Talaba F.I.Sh</span><input id="nm${id}" placeholder="Familiya, ism, sharif" value="${esc(store.get('student')||'')}" autocomplete="name"></label></div>`;
+}
+function bindStudent(root, after){
+  const nm=root.querySelector('input[id^="nm"]'), gr=root.querySelector('input[id^="gr"]');
+  if(nm) nm.addEventListener('change',()=>{ store.set('student',nm.value.trim()); after&&after(); });
+  if(gr) gr.addEventListener('change',()=>{ store.set('group',gr.value.trim()); after&&after(); });
+  if(nm) nm.addEventListener('input',()=>store.set('student',nm.value.trim()));
+  if(gr) gr.addEventListener('input',()=>store.set('group',gr.value.trim()));
+}
+function jnCard(p, compact){
+  const S=partScore(p); const name=store.get('student')||'', grp=store.get('group')||'';
+  const pct=S.ball/JN_MAX*100;
+  const code=hash([name,grp,'JN'+p,fmtB(S.ball,3),S.T.map(t=>t.R.map(r=>r?r.right:'-').join('.')).join('|'),S.ts].join('#'));
+  return `<div class="jn-card">
+    <div class="jn-k">Joriy nazorat · ${PART_NAME[p]} · ${partTopics(p)[0].n}–${partTopics(p).slice(-1)[0].n}-mavzular</div>
+    <dl class="jn-dl">
+      <div><dt>Guruh</dt><dd>${esc(grp)||'<span class="miss">kiritilmagan</span>'}</dd></div>
+      <div><dt>Talaba F.I.Sh</dt><dd>${esc(name)||'<span class="miss">kiritilmagan</span>'}</dd></div>
+      <div class="big"><dt>Joriy nazorat balli <small>(amaliy mashg‘ulot darsi uchun)</small></dt><dd><b>${fmtB(S.ball)}</b> <span>/ ${JN_MAX}</span></dd></div>
+    </dl>
+    <div class="jn-bar" role="img" aria-label="${fmtB(S.ball)} / 8 ball"><i style="width:${pct.toFixed(1)}%"></i></div>
+    <div class="jn-meta"><span>To‘liq bajarilgan mavzular: <b>${S.done} / ${S.N}</b></span>${S.started?`<span>Jarayonda: <b>${S.started}</b></span>`:''}
+      <span>Har bir mavzu: ${fmtB(JN_MAX/S.N)} ball</span>${compact?'':`<span>Oxirgi faollik: ${stamp(S.ts)}</span><span>Tekshiruv kodi: <b class="mono">${code}</b></span>`}</div>
+  </div>`;
+}
+function renderJN(p){
+  document.title='Joriy nazorat — '+PART_NAME[p];
+  const S=partScore(p);
+  let rows=S.T.map(t=>{ const meta=INDEX.find(x=>x.n===t.n);
+    const cell=i=>t.R[i]?`${t.R[i].right}/${t.R[i].total}`:'<span class="miss">—</span>';
+    const st=t.done?`<b>${fmtB(t.ball)}</b>`:(t.doneCnt?`<span class="miss">jarayonda (${t.doneCnt}/3)</span>`:'<span class="miss">—</span>');
+    return `<tr class="${t.done?'done':''}"><td>${t.n}</td><td class="tl"><a href="#a${t.n}-baholash">${esc(meta.title)}</a></td><td>${cell(0)}</td><td>${cell(1)}</td><td>${cell(2)}</td><td>${st} <small>/ ${fmtB(t.share)}</small></td></tr>`; }).join('');
+  app.innerHTML=`<div class="crumb"><a href="#">Mundarija</a><span>›</span><span>Joriy nazorat</span></div>
+   <div class="th"><div class="big">8</div><h1>Amaliy mashg‘ulot bo‘yicha joriy nazorat — ${PART_NAME[p]}</h1></div>
+   <div class="jn-tabs">${[1,2,3].map(k=>`<a class="btn ${k===p?'primary':''}" href="#jn${k}">${PART_NAME[k]}</a>`).join('')}</div>
+   <div class="quiz jn-wrap">${studentFields('j')}${jnCard(p)}
+   <p class="jn-note">8 ball ${S.N} ta mavzuga teng taqsimlangan (har biri ${fmtB(JN_MAX/S.N)} ball); mavzu ichida — savollar soniga mutanosib: har bir to‘g‘ri javob ≈ ${fmtB(JN_MAX/(S.N*40),3)} ball. Mavzudagi uchta test to‘liq bajarilganda ball umumiy ko‘rsatkichga qo‘shiladi. Testni qayta topshirsangiz, oxirgi natija hisobga olinadi — ball ortishi yoki kamayishi mumkin.</p>
+   <div class="tbl"><table class="jn-t"><thead><tr><th>№</th><th>Mavzu</th><th>Test o‘yini</th><th>Yopiq</th><th>Ko‘rgazmali</th><th>Ball</th></tr></thead><tbody>${rows}</tbody>
+   <tfoot><tr><td></td><td class="tl"><b>Jami</b></td><td colspan="3"></td><td><b>${fmtB(S.ball)}</b> <small>/ ${JN_MAX}</small></td></tr></tfoot></table></div>
+   <p class="noprint" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><button class="btn primary" id="pr">Chop etish / PDF</button>
+   <a class="btn" href="#">Mavzular ro‘yxati</a></p></div>`;
+  bindStudent(app, ()=>renderJN(p));
+  app.querySelector('#pr').onclick=()=>window.print();
+  window.scrollTo(0,0);
+}
 function renderGrade(d, pane){
-  const K=[['test','Test o‘yini',20],['yopiq','Yopiq test',10],['vizual','Ko‘rgazmali test',10]];
-  const R=K.map(([k])=>getRes(d.key,k));
-  const done=R.every(Boolean); const total=R.reduce((a,r)=>a+(r?r.right:0),0);
-  const nextK=K.find(([k],i)=>!R[i]);
-  const name=store.get('student')||'', grp=store.get('group')||'';
-  let h=`<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>${d.label} bo‘yicha baholash</b> · 40 ball</span><span class="spacer"></span><span class="score">${total} / 40</span></div>
-   <p style="color:var(--ink-soft);margin:8px 0 12px">Uchta testni ketma-ket bajaring. Har bir to‘g‘ri javob — 1 ball. Jami ball 5 ballik bahoga aylantiriladi: 35–40 → «5», 29–34 → «4», 23–28 → «3», 22 va kam → «2».</p>
-   <label style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px"><b style="font-family:var(--f-display)">Talaba:</b>
-   <input id="nm" placeholder="Familiya, ism" value="${esc(name)}" style="flex:1 1 200px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit">
-   <input id="gr" placeholder="Guruh" value="${esc(grp)}" style="flex:0 1 120px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit"></label>
-   <div style="display:grid;gap:8px">${K.map(([k,t,mx],i)=>`<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--paper)">
-     <span style="font-family:var(--f-mono);font-weight:700;color:var(--accent)">${i+1}</span><span style="flex:1;min-width:140px"><b>${t}</b> · ${mx} ball</span>
-     <span class="chip ${R[i]?'best':''}">${R[i]?R[i].right+' / '+mx+' ball':'bajarilmagan'}</span>
-     <a class="btn ${R[i]?'':'primary'}" href="#${d.key}-${k}">${R[i]?'Qayta':'Boshlash'}</a></div>`).join('')}</div>`;
-  if(done){
-    const g=gradeOf(total); const when=new Date(Math.max(...R.map(r=>r.ts)));
-    const ds=when.toLocaleDateString('uz-UZ')+' '+String(when.getHours()).padStart(2,'0')+':'+String(when.getMinutes()).padStart(2,'0');
-    const code=hash([name,grp,d.key,R.map(r=>r.right).join('-'),when.getTime()].join('|'));
-    h+=`<div class="result-card" style="margin-top:16px;border:2px solid var(--blue);border-radius:16px;padding:16px;background:var(--card)">
-      <div style="font-family:var(--f-display);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)">Natija kartasi</div>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:8px"><div class="gradebox g${g}" style="margin:0"><div class="gnum">${g}</div><div><b>${total} / 40 ball</b><br>«${GW[g]}»</div></div>
-      <div style="min-width:0;flex:1"><b>${esc(name||'— ism kiritilmagan —')}</b>${grp?' · '+esc(grp):''}<br>${d.label} ${esc(d.title)}<br>
-      Test o‘yini: ${R[0].right}/20 · Yopiq: ${R[1].right}/10 · Ko‘rgazmali: ${R[2].right}/10<br>
-      <span style="color:var(--muted)">${ds} · tekshiruv kodi: <b style="font-family:var(--f-mono)">${code}</b></span></div></div>
-      <p style="margin:10px 0 0;color:var(--ink-soft)">Ushbu kartani o‘qituvchingizga ko‘rsating yoki skrinshot qilib yuboring.</p></div>
-      <p style="margin-top:12px"><button class="btn" id="reset">Barchasini qaytadan topshirish</button></p>`;
-  } else if(nextK){ h+=`<p style="margin-top:14px"><a class="btn red" href="#${d.key}-${nextK[0]}">${nextK[1]}ni boshlash →</a></p>`; }
-  h+='</div>';
+  const n=+d.key.slice(1), p=partOf(n), t=topicScore(n);
+  const nextK=KINDS.find(([k],i)=>!t.R[i]);
+  let h=`<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>${d.label} bo‘yicha baholash</b> · joriy nazorat ulushi ${fmtB(t.share)} ball</span><span class="spacer"></span>
+     <span class="score">${t.done?fmtB(t.ball):'…'} / ${fmtB(t.share)}</span></div>
+   <p style="color:var(--ink-soft);margin:8px 0 12px">${PART_NAME[p]} bo‘yicha amaliy mashg‘ulot joriy nazorati — <b>8 ball</b>. U ${partTopics(p).length} ta mavzuga teng taqsimlangan: bu mavzu ${fmtB(t.share)} ball beradi. Uchta testni to‘liq bajarganingizda, to‘g‘ri javoblar ulushiga mos ball umumiy ko‘rsatkichga qo‘shiladi.</p>
+   ${studentFields('g')}
+   <div style="display:grid;gap:8px;margin-top:12px">${KINDS.map(([k,tt,mx],i)=>`<div class="krow">
+     <span class="kn">${i+1}</span><span style="flex:1;min-width:150px"><b>${tt}</b> · ${mx} savol · ${fmtB(t.share*mx/40,3)} ballgacha</span>
+     <span class="chip ${t.R[i]?'best':''}">${t.R[i]?t.R[i].right+' / '+t.R[i].total+' to‘g‘ri':'bajarilmagan'}</span>
+     <a class="btn ${t.R[i]?'':'primary'}" href="#${d.key}-${k}">${t.R[i]?'Qayta':'Boshlash'}</a></div>`).join('')}</div>`;
+  if(t.done) h+=`<div class="topic-res"><div><span class="kk">Ushbu mavzu</span><b>${fmtB(t.ball)}</b> / ${fmtB(t.share)} ball <small>(${t.right} / ${t.total} to‘g‘ri javob)</small></div></div>`;
+  else if(nextK) h+=`<p style="margin-top:14px"><a class="btn red" href="#${d.key}-${nextK[0]}">${nextK[1]}ni boshlash →</a></p>`;
+  h+=`<div style="margin-top:16px">${jnCard(p,true)}</div>
+    <p style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"><a class="btn primary" href="#jn${p}">Joriy nazorat sahifasi (barcha mavzular) →</a>${t.doneCnt?'<button class="btn" id="reset">Bu mavzu testlarini qaytadan topshirish</button>':''}</p></div>`;
   pane.innerHTML=h;
-  const nm=pane.querySelector('#nm'), gr=pane.querySelector('#gr');
-  nm.onchange=()=>{ store.set('student',nm.value.trim()); renderGrade(d,pane); }; gr.onchange=()=>{ store.set('group',gr.value.trim()); renderGrade(d,pane); };
-  const rs=pane.querySelector('#reset'); if(rs) rs.onclick=()=>{ K.forEach(([k])=>{ try{ localStorage.removeItem(resKey(d.key,k)); }catch(e){} }); renderGrade(d,pane); };
+  bindStudent(pane, ()=>renderGrade(d,pane));
+  const rs=pane.querySelector('#reset'); if(rs) rs.onclick=()=>{ KINDS.forEach(([k])=>{ try{ localStorage.removeItem(resKey(d.key,k)); }catch(e){} }); renderGrade(d,pane); };
 }
 function stepEnd(d, kind, right, total){
+  const n=+d.key.slice(1), p=partOf(n);
+  const before=partScore(p).ball;
   saveRes(d.key, kind, right, total);
-  const order=['test','yopiq','vizual']; const i=order.indexOf(kind);
+  const t=topicScore(n), after=partScore(p).ball, diff=after-before;
+  const order=KINDS.map(k=>k[0]); const i=order.indexOf(kind);
   const nxt=order.slice(i+1).concat(order.slice(0,i)).find(k=>!getRes(d.key,k));
   const name={test:'Test o‘yini',yopiq:'Yopiq test',vizual:'Ko‘rgazmali test'};
-  return `<div class="gradebox" style="justify-content:center"><div class="gnum" style="background:var(--blue)">${right}</div><div><b>${right} / ${total} ball</b><br>${name[kind]} natijasi saqlandi</div></div>
-    <p style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">${nxt?`<a class="btn red" href="#${d.key}-${nxt}">${name[nxt]}ga o‘tish →</a>`:''}<a class="btn ${nxt?'':'red'}" href="#${d.key}-baholash">Baholash (40 ball) →</a></p>`;
+  const msg = t.done
+    ? `Mavzu to‘liq bajarildi: <b>${fmtB(t.ball)} / ${fmtB(t.share)}</b> ball.${Math.abs(diff)>=0.005?` Joriy nazorat ${diff>0?'+':''}${fmtB(diff)} ball o‘zgardi.`:''}`
+    : `Mavzu ${t.doneCnt}/3 bajarildi — qolgan test(lar)ni yakunlaganingizda ball qo‘shiladi.`;
+  return `<div class="gradebox" style="justify-content:center"><div class="gnum" style="background:var(--blue)">${right}</div><div><b>${right} / ${total} to‘g‘ri</b><br>${name[kind]} natijasi saqlandi</div></div>
+    <p style="margin:6px 0 8px">${msg}</p>
+    <div class="jn-mini"><span>Joriy nazorat (${PART_NAME[p]})</span><b>${fmtB(after)} / ${JN_MAX}</b><i style="--w:${(after/JN_MAX*100).toFixed(1)}%"></i></div>
+    <p style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">${nxt?`<a class="btn red" href="#${d.key}-${nxt}">${name[nxt]}ga o‘tish →</a>`:''}<a class="btn ${nxt?'':'red'}" href="#${d.key}-baholash">Baholash →</a><a class="btn" href="#jn${p}">Joriy nazorat →</a></p>`;
 }
 
 /* ---------------- CLOSED TESTS ---------------- */
 const KIND = {tf:'To‘g‘ri yoki noto‘g‘ri', match:'Moslashtiring', order:'Ketma-ketlikni tiklang', multi:'Bir nechta to‘g‘ri javob'};
 function renderClosed(d, pane){
   const items = d.closed || []; let done = 0, okc = 0;
-  pane.innerHTML = `<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>Yopiq test</b> · ${items.length} ta topshiriq · ${items.length} ball</span><span class="spacer"></span><span class="score" id="cs">0 / ${items.length}</span></div>
-    <p style="color:var(--ink-soft);margin:8px 0 0">Har bir topshiriqni bajarib, «Tekshirish» tugmasini bosing. Har bir to‘g‘ri bajarilgan topshiriq — 1 ball.</p></div>
+  pane.innerHTML = `<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>Yopiq test</b> · ${items.length} ta topshiriq</span><span class="spacer"></span><span class="score" id="cs">0 / ${items.length}</span></div>
+    <p style="color:var(--ink-soft);margin:8px 0 0">Har bir topshiriqni bajarib, «Tekshirish» tugmasini bosing. Natija 8 ballik joriy nazoratga mutanosib qo‘shiladi.</p></div>
     <div id="cl" style="display:grid;gap:12px;margin-top:12px;max-width:900px"></div>`;
   const cl = pane.querySelector('#cl');
   items.forEach((it, k)=>{
@@ -379,7 +548,7 @@ function renderClosed(d, pane){
       else { const cur=[...box.querySelectorAll('li')].map(x=>+x.dataset.v); ok = cur.every((x,i)=>x===it.a[i]);
         box.querySelectorAll('li').forEach((x,i)=>x.style.borderColor = +x.dataset.v===it.a[i]?'var(--ok)':'var(--bad)'); ans = it.a.map(j=>it.items[j]).join(' → '); }
       box.dataset.done=1; done++; if(ok) okc++;
-      const fb=box.querySelector('.fb'); fb.className='fb '+(ok?'ok':'bad'); fb.innerHTML = ok ? 'To‘g‘ri! +1 ball' : 'Noto‘g‘ri. To‘g‘ri javob: '+ans;
+      const fb=box.querySelector('.fb'); fb.className='fb '+(ok?'ok':'bad'); fb.innerHTML = ok ? 'To‘g‘ri!' : 'Noto‘g‘ri. To‘g‘ri javob: '+ans;
       pane.querySelector('#cs').textContent = okc+' / '+items.length;
       if(done===items.length){ const end=document.createElement('div'); end.className='quiz result'; end.innerHTML=`<h2 style="font-family:var(--f-display);margin:0 0 6px">Yopiq test natijasi</h2>${stepEnd(d,'yopiq',okc,items.length)}`; cl.appendChild(end); end.scrollIntoView({behavior:'smooth',block:'center'}); }
     };
@@ -389,8 +558,8 @@ function renderClosed(d, pane){
 /* ---------------- VISUAL TESTS ---------------- */
 function renderVisual(d, pane){
   const items = d.visual || []; let done=0, okc=0;
-  pane.innerHTML = `<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>Ko‘rgazmali test</b> · ${items.length} ta · ${items.length} ball</span><span class="spacer"></span><span class="score" id="vs">0 / ${items.length}</span></div>
-    <p style="color:var(--ink-soft);margin:8px 0 0">Rasmni tahlil qiling va javobni bosing: javob holati shu zahoti ko‘rinadi. Har bir to‘g‘ri javob — 1 ball.</p></div>
+  pane.innerHTML = `<div class="quiz" style="max-width:900px"><div class="qhead"><span><b>Ko‘rgazmali test</b> · ${items.length} ta topshiriq</span><span class="spacer"></span><span class="score" id="vs">0 / ${items.length}</span></div>
+    <p style="color:var(--ink-soft);margin:8px 0 0">Rasmni tahlil qiling va javobni bosing: javob holati shu zahoti ko‘rinadi. Natija 8 ballik joriy nazoratga mutanosib qo‘shiladi.</p></div>
     <div id="vl" style="display:grid;gap:12px;margin-top:12px;max-width:900px"></div>`;
   const vl = pane.querySelector('#vl');
   items.forEach((it,k)=>{
@@ -404,7 +573,7 @@ function renderVisual(d, pane){
     box.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
       if(box.dataset.done) return; box.dataset.done=1; const i=+b.dataset.i, ok=i===it.a;
       box.querySelectorAll('.opt').forEach(x=>x.disabled=true); box.querySelectorAll('.opt')[it.a].classList.add('ok'); if(!ok) b.classList.add('bad');
-      const fb=box.querySelector('.fb'); fb.className='fb '+(ok?'ok':'bad'); fb.innerHTML = ok?'To‘g‘ri javob! +1 ball':'Noto‘g‘ri. To‘g‘ri javob: '+LT[it.a]+') '+it.opts[it.a];
+      const fb=box.querySelector('.fb'); fb.className='fb '+(ok?'ok':'bad'); fb.innerHTML = ok?'To‘g‘ri javob!':'Noto‘g‘ri. To‘g‘ri javob: '+LT[it.a]+') '+it.opts[it.a];
       done++; if(ok) okc++; pane.querySelector('#vs').textContent = okc+' / '+items.length;
       if(done===items.length){ const end=document.createElement('div'); end.className='quiz result'; end.innerHTML=`<h2 style="font-family:var(--f-display);margin:0 0 6px">Ko‘rgazmali test natijasi</h2>${stepEnd(d,'vizual',okc,items.length)}`; vl.appendChild(end); end.scrollIntoView({behavior:'smooth',block:'center'}); }
     });
@@ -434,44 +603,7 @@ function renderText(d, pane){
   pane.querySelectorAll('.fig.anim-wait').forEach(f=>{ if(obs) obs.observe(f); else animateSVG(f.parentElement); });
 }
 
-/* ---- slides from blocks ---- */
-function firstSentences(html, max=230){
-  const t = strip(html); if(t.length<=max) return esc(t);
-  const cut = t.slice(0,max); const i = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('; '));
-  return esc(i>80 ? cut.slice(0,i+1) : cut.replace(/\s\S*$/,'')+' …');
-}
-function buildSlides(d){
-  const S = []; const secs=[]; let cur=null;
-  for(const b of d.blocks){ if(b.t==='h'){ cur={h:b.html, z:b.z, items:[]}; secs.push(cur); } else if(cur && b.t!=='zone') cur.items.push(b); }
-  S.push({cls:'title-slide', html:`<div class="sec rv">${d.label} · Amaliy mashg‘ulot</div><h2 class="rv">${esc(d.title)}</h2><p class="rv" style="color:var(--muted)">${esc(d.bob)}</p>
-     <div class="outline rv">${secs.map(s=>`<span class="chip">${esc(strip(s.h).replace(/^\d+\.\d+\.\s*/,''))}</span>`).join('')}</div>`});
-  // groups: lead block (mis/case/w/ref) + following
-  for(const s of secs){
-    const it=s.items; const kick=strip(s.h).replace(/^\d+\.\d+\.\s*/,'');
-    if(s.z==='nazariya'){
-      const ps=it.filter(b=>['p','box'].includes(b.t)).slice(0,4); const fig=it.find(b=>b.t==='fig');
-      S.push({html:`<div class="kicker">${kick}</div><h2>Tayanch tushunchalar</h2><div class="cols ${fig?'':'one'}"><ul>${ps.map(p=>`<li class="rv">${firstSentences(p.html)}</li>`).join('')}</ul>${fig?`<div class="rv">${figHTML(fig,true)}</div>`:''}</div>`});
-      continue;
-    }
-    const groups=[]; let g=null;
-    for(const b of it){ if(['mis','case','wq','ref'].includes(b.t)){ g={lead:b, rest:[]}; groups.push(g); } else if(g) g.rest.push(b); }
-    const lim = s.z==='keys'?5: s.z==='dunyo'?5: 4;
-    groups.slice(0,lim).forEach(gr=>{
-      const fig=gr.rest.find(b=>b.t==='fig'); const parts=gr.rest.filter(b=>['yech','p','vaz','savol','tex','opts'].includes(b.t)).slice(0,4);
-      const jav=gr.rest.find(b=>b.t==='jav');
-      S.push({html:`<div class="kicker">${kick}</div><div class="cols ${fig?'':'one'}"><div style="display:grid;gap:8px"><p class="rv" style="font-weight:600">${gr.lead.html}</p>
-        ${parts.map(p=>`<p class="rv" style="${p.t==='yech'?'border-left:3px solid var(--blue);padding-left:10px':''}">${p.html}</p>`).join('')}
-        ${jav?`<div class="answer rv">✔ ${jav.html}</div>`:''}</div>${fig?`<div class="rv">${figHTML(fig,true)}</div>`:''}</div>`});
-    });
-  }
-  const pick=[0,7,14].map(i=>d.tests[i]).filter(Boolean);
-  pick.forEach((t,k)=>S.push({quiz:t, html:`<div class="kicker">Tezkor savol ${k+1}/3</div><h2 style="font-size:clamp(1rem,2.2vw,1.5rem)">${t.q}</h2>
-     <div class="opts">${t.o.map((o,i)=>`<button class="opt" data-i="${i}"><span class="L">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div><div class="fb"></div>`}));
-  S.push({cls:'title-slide', html:`<div class="kicker">Yakun</div><h2>${d.label} taqdimoti tugadi</h2>
-     <p class="rv">Endi 40 ballik baholashdan o‘ting: test o‘yini (20), yopiq test (10), ko‘rgazmali test (10).</p>
-     <p class="rv"><a class="btn red" href="#${d.key}-baholash">Baholashni boshlash →</a></p>`});
-  return S;
-}
+/* ---- slides: see deck section ---- */
 function animateSVG(container){
   container.querySelectorAll('.anim-wait').forEach(f=>{
     f.classList.remove('anim-wait'); f.classList.add('anim');
@@ -487,25 +619,141 @@ function animateSVG(container){
   });
 }
 
+/* ---------------- TAQDIMOT (to‘liq matn asosida) ---------------- */
+const BOB_TECH = {
+  1:[['GeoGebra','Eyler–Venn diagrammalari, to‘plamlar kesishmasi va birlashmasini jonli ko‘rsatish'],['Mathigon Polypad','saralash va guruhlash; Venn diagrammasiga obyektlarni sudrab joylashtirish'],['Google Sheets / Excel','UNIQUE, FILTER funksiyalari — takrorlanmas elementlar va xarakteristik xossa bo‘yicha tanlash'],['Wordwall, Quizizz','«Guruhlarga ajrat» o‘yinlari va tezkor so‘rovlar']],
+  2:[['Python (itertools)','permutations, combinations — o‘rinlashtirish va gruppalashlar sonini tekshirish'],['Scratch','barcha variantlarni sanab chiqadigan oddiy dastur tuzish'],['Mathigon Polypad','kartochka va kubiklar bilan tanlash, variantlar daraxtini qurish'],['GeoGebra','variantlar daraxti va ehtimollik kalkulyatori']],
+  3:[['Scratch / Code.org','«agar — u holda — aks holda» bloklari: mulohaza va implikatsiyani dasturda ko‘rish'],['Google Sheets','AND, OR, NOT funksiyalari bilan rostlik jadvalini avtomatik tuzish'],['Kahoot!, Quizizz','«rost — yolg‘on» tezkor baholash'],['Sun’iy intellekt chatbotlari','argumentdagi mantiqiy xatoni topish mashqi — chatbot javobini ham tanqidiy tekshirish']],
+  4:[['GeoGebra','graf uchlari va qirralarini chizish, Eyler yo‘lini izlash'],['Graph Online','graf qurish, eng qisqa yo‘lni avtomatik topish'],['Onlayn xaritalar','marshrut tanlash — graf modelining kundalik misoli'],['Scratch','amal jadvali (Keli jadvali) asosida o‘yin tuzish']],
+  5:[['Math Learning Center ilovalari','«Number Line», «Number Pieces» — sonlar nuri va o‘nlik bloklar'],['Mathigon Polypad','sonlar o‘qi, son tayoqchalari, sanash materiallari'],['GeoGebra','sonlar nurida qo‘shish va ayirishni modellashtirish'],['Wordwall','son tarkibi va taqqoslash o‘yinlari']],
+  6:[['Math Learning Center ilovalari','«Number Line», «Number Pieces» — aksiomalarni ko‘rgazmali talqin qilish'],['Mathigon Polypad','qo‘shish va ko‘paytirishning xossalarini bloklar bilan ko‘rsatish'],['GeoGebra','ko‘paytmani to‘g‘ri to‘rtburchak modeli orqali ko‘rsatish'],['Scratch','«keyingi son» funksiyasini dasturda modellashtirish']],
+  7:[['CS Unplugged','«Ikkilik sonlar» kartochkalari — kompyutersiz informatika mashg‘uloti'],['Code.org','ikkilik kod va pikselli rasm topshiriqlari'],['Math Learning Center «Number Pieces»','o‘nlik birliklar va razryad almashinuvi'],['Kalkulyator (dasturchi rejimi)','sonlarni turli sanoq sistemalariga o‘tkazishni tekshirish']],
+  8:[['Mathigon Polypad','sonlar to‘ri — Eratosfen g‘alviri, bo‘luvchilarni bo‘yash'],['GeoGebra','EKUB va EKUKni to‘g‘ri to‘rtburchaklar bilan modellashtirish'],['Scratch','bo‘linish belgilarini tekshiruvchi dastur'],['Google Sheets','MOD, GCD, LCM funksiyalari bilan tekshirish']],
+  9:[['Math Learning Center «Fractions»','kasr tasmalari bilan solishtirish va qo‘shish'],['PhET «Fractions»','interaktiv kasr simulyatsiyalari (bepul, Kolorado universiteti)'],['Mathigon Polypad','kasr bo‘laklari, o‘nli kasrlar va sonlar o‘qi'],['Desmos','manfiy sonlar va o‘nli kasrlarni sonlar o‘qida ko‘rsatish']],
+  10:[['GeoGebra Geometriya / 3D','yasashlar, shakllarni aylantirish; 3D rejimda AR orqali ko‘rish'],['Mathigon Polypad','tangram, geoplan (geoboard), simmetriya'],['Math Learning Center «Geoboard»','perimetr va yuzani kataklarda o‘rganish'],['Smartfon kamerasi','atrofdagi geometrik shakllarni suratga olib tahlil qilish']],
+  11:[['PhET «Area Builder»','yuzani birlik kvadratlar bilan o‘lchash'],['GeoGebra','perimetr, yuza va hajmni dinamik o‘zgartirish'],['phyphox ilovasi','smartfon sensorlari bilan vaqt, masofa va tezlikni o‘lchash'],['Google Sheets','o‘lchov birliklarini o‘tkazish jadvallari']],
+  12:[['Thinking Blocks (Math Playground)','Singapur uslubidagi «bar model» — matnli masalani sxemalash'],['Mathigon Polypad','son tayoqchalari bilan masala modelini tuzish'],['Desmos / GeoGebra','harakat masalalarini grafikda ko‘rish'],['Sun’iy intellekt yordamchilari','o‘xshash masalalar va variantlar yaratish — yechimni albatta o‘zingiz tekshiring']]
+};
+const NEWS = [
+  ['2026-yil 21-oktyabr','«O‘zbek tilining lotin yozuviga asoslangan alifbosini takomillashtirish to‘g‘risida»gi qonun imzolandi: o‘ → ö, g‘ → ğ, sh → ş, ch → ç. Qonun 2027-yil 22-aprelda kuchga kiradi; darslik va o‘quv materiallari bosqichma-bosqich yangilanadi.'],
+  ['PISA 2022','O‘zbekiston xalqaro PISA tadqiqotida ilk bor qatnashdi. Natijalar matematik savodxonlikni oshirish, amaliy va kontekstli masalalarga e’tiborni kuchaytirish zarurligini ko‘rsatdi.'],
+  ['Sun’iy intellekt va ta’lim','UNESCO 2023-yilda ta’lim va tadqiqotda generativ sun’iy intellektdan foydalanish bo‘yicha global yo‘riqnoma e’lon qildi: SI — o‘qituvchining o‘rnini bosmaydi, balki uning yordamchisi; javoblar tanqidiy tekshirilishi shart.']
+];
+const LEAD = ['mis','case','wq','ref'];
+const ZNAME = {nazariya:'Nazariya',misollar:'Namunaviy misollar',keys:'Keys-stadi',testyech:'Testlar tahlili',vizyech:'Ko‘rgazmali testlar',yopyech:'Yopiq testlar',dunyo:'Xalqaro tajriba'};
+const ZICON = {nazariya:'∑',misollar:'✎',keys:'◈',testyech:'✓',vizyech:'◐',yopyech:'⇄',dunyo:'◍'};
+const tlen = b => strip(b.html||'').length + (b.t==='table'?strip(b.html).length*0.6+80:0) + (b.t==='opts'?60:0);
+function blockHTML(b){
+  if(b.t==='fig') return '';
+  if(LEAD.includes(b.t)) return `<p class="lead">${b.html}</p>`;
+  if(b.t==='jav') return `<div class="answer rv">✔ ${b.html}</div>`;
+  if(b.t==='yech') return `<p class="sy rv">${b.html}</p>`;
+  if(b.t==='vaz'||b.t==='savol') return `<p class="sv rv">${b.html}</p>`;
+  if(b.t==='box') return `<div class="sbox rv">${b.html}</div>`;
+  if(b.t==='opts') return `<div class="optline rv">${b.html}</div>`;
+  if(b.t==='table') return `<div class="tbl rv">${b.html}</div>`;
+  if(b.t==='li') return `<p class="rv">• ${b.html}</p>`;
+  return `<p class="rv">${b.html}</p>`;
+}
+function paginate(items){
+  const pages=[]; let pg=null;
+  const fresh = (cont)=>{ pg={items:[],fig:null,len:0,cont}; pages.push(pg); };
+  for(const b of items){
+    const budget = ()=> pg.fig ? 1050 : 1500;
+    if(LEAD.includes(b.t) || !pg){ fresh(null); }
+    if(b.t==='fig'){ if(pg.fig){ fresh(pg.items.find(x=>LEAD.includes(x.t))||pg.cont); } pg.fig=b; continue; }
+    const L=tlen(b);
+    if(pg.items.length && pg.len+L>budget()){ const lead=pg.items.find(x=>LEAD.includes(x.t))||pg.cont; fresh(lead); }
+    pg.items.push(b); pg.len+=L;
+  }
+  return pages.filter(p=>p.items.length||p.fig);
+}
+function planList(html){
+  const t=html.replace(/^<b>[^<]*<\/b>\s*/,'');
+  const parts=t.split(/;\s*(?=\d+\))/).map(s=>s.replace(/^\d+\)\s*/,'').trim()).filter(Boolean);
+  return parts.length>1 ? `<ol class="plan">${parts.map(p=>`<li class="rv">${p}</li>`).join('')}</ol>` : `<p class="rv">${t}</p>`;
+}
+function buildSlides(d){
+  const S=[]; const secs=[]; let cur=null;
+  for(const b of d.blocks){ if(b.t==='h'){ cur={h:b.html,z:b.z,items:[]}; secs.push(cur); } else if(cur && b.t!=='zone') cur.items.push(b); }
+  const n=+d.key.slice(1), bobNo=+(String(d.bob).match(/^(\d+)-BOB/)||[0,0])[1];
+  const secTitle = s => strip(s.h).replace(/^\d+\.\d+\.\s*/,'');
+  const secNo = s => (strip(s.h).match(/^(\d+\.\d+)\./)||[,''])[1];
+  S.push({cls:'title-slide', title:d.title, html:`<div class="sec rv">${d.label}</div><div class="kicker rv">Amaliy mashg‘ulot · ${esc(d.bob)}</div><h2 class="rv">${esc(d.title)}</h2>
+     <ol class="outline rv">${secs.map(s=>`<li><span>${secNo(s)}</span>${esc(secTitle(s))}</li>`).join('')}</ol>`});
+  // maqsad va reja
+  const naz=secs.find(s=>s.z==='nazariya');
+  const goal=naz&&naz.items.find(b=>b.t==='p'&&/^<b>Mashg‘ulot maqsadi/.test(b.html));
+  const plan=naz&&naz.items.find(b=>b.t==='p'&&/^<b>Mashg‘ulot rejasi/.test(b.html));
+  if(goal||plan) S.push({title:'Maqsad va reja', html:`<div class="kicker">Mashg‘ulot haqida</div><h2>Maqsad va reja</h2><div class="cols">
+     <div class="card rv"><h4>🎯 Maqsad</h4><p>${goal?goal.html.replace(/^<b>[^<]*<\/b>\s*/,''):''}</p></div>
+     <div class="card rv"><h4>⏱ Reja (80 daqiqa)</h4>${plan?planList(plan.html):''}</div></div>`});
+  for(const s of secs){
+    const items=s.items.filter(b=>b!==goal&&b!==plan);
+    const nLead=items.filter(b=>LEAD.includes(b.t)).length;
+    S.push({cls:'divider z-'+(s.z||''), title:secNo(s)+' '+secTitle(s), html:`<div class="dv-ic rv">${ZICON[s.z]||'§'}</div><div class="dv-no rv">${secNo(s)}</div>
+      <h2 class="rv">${esc(secTitle(s))}</h2><p class="rv dv-sub">${ZNAME[s.z]||''}${nLead?` · ${nLead} ta ${s.z==='keys'?'keys':s.z==='dunyo'?'mamlakat tajribasi':'topshiriq'}`:''}</p>`});
+    const pages=paginate(items);
+    pages.forEach((pg,k)=>{
+      const lead=pg.items.find(b=>LEAD.includes(b.t));
+      const head = !lead && pg.cont ? `<p class="lead cont">${pg.cont.html} <span class="muted">(davomi)</span></p>` : '';
+      const body=pg.items.map(blockHTML).join('');
+      const t=lead?strip(lead.html).slice(0,70):(pg.cont?strip(pg.cont.html).slice(0,60)+' (davomi)':secTitle(s));
+      S.push({title:t, html:`<div class="kicker">${secNo(s)} · ${esc(secTitle(s))}<span class="pgn">${k+1}/${pages.length}</span></div>
+        <div class="cols ${pg.fig?'':'one'}"><div class="flow">${head}${body}</div>${pg.fig?`<div class="rv figc">${figHTML(pg.fig,true)}</div>`:''}</div>`});
+    });
+  }
+  // asosiy xulosalar
+  const boxes=naz?naz.items.filter(b=>b.t==='box'):[];
+  if(boxes.length) S.push({title:'Asosiy xulosalar', html:`<div class="kicker">Yodda tuting</div><h2>Asosiy xulosalar</h2><div class="flow">${boxes.map(b=>`<div class="sbox rv">${b.html}</div>`).join('')}</div>`});
+  // raqamli vositalar
+  const tech=BOB_TECH[bobNo];
+  if(tech) S.push({title:'Raqamli vositalar', html:`<div class="kicker">Zamonaviy ta’lim texnologiyalari</div><h2>Mavzuni raqamli vositalar bilan o‘qitish</h2>
+     <div class="tech">${tech.map(([a,b])=>`<div class="tcard rv"><b>${a}</b><span>${b}</span></div>`).join('')}
+     <div class="tcard ai rv"><b>Sun’iy intellekt</b><span>Dars uchun masala variantlari, rag‘batlantiruvchi savollar va xatolar tahlilini tayyorlashda yordamchi sifatida — har bir javobni o‘qituvchi tekshiradi.</span></div></div>`});
+  S.push({title:'Ta’limdagi yangiliklar', html:`<div class="kicker">Yangiliklar va tendensiyalar</div><h2>Boshlang‘ich ta’limdagi so‘nggi yangiliklar</h2>
+     <div class="news">${NEWS.map(([a,b])=>`<div class="ncard rv"><span class="nd">${a}</span><p>${b}</p></div>`).join('')}</div>`});
+  const pick=[0,7,14].map(i=>d.tests[i]).filter(Boolean);
+  pick.forEach((t,k)=>S.push({quiz:t, title:'Tezkor savol '+(k+1), html:`<div class="kicker">Tezkor savol ${k+1}/3</div><h2 style="font-size:calc(var(--k,1)*clamp(1rem,2.2vw,1.5rem))">${t.q}</h2>
+     <div class="opts">${t.o.map((o,i)=>`<button class="opt" data-i="${i}"><span class="L">${'ABCD'[i]}</span><span>${o}</span></button>`).join('')}</div><div class="fb"></div>`}));
+  const p=partOf(n);
+  S.push({cls:'title-slide', title:'Yakun', html:`<div class="kicker">Yakun</div><h2>${d.label} taqdimoti tugadi</h2>
+     <p class="rv">Endi testlarni bajaring: test o‘yini (20 savol), yopiq test (10) va ko‘rgazmali test (10). Natijangiz ${PART_NAME[p]} bo‘yicha <b>8 ballik joriy nazorat</b>ga qo‘shiladi.</p>
+     <p class="rv" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn red" href="#${d.key}-test">Test o‘yinini boshlash →</a><a class="btn" href="#jn${p}">Joriy nazorat</a></p>`});
+  return S;
+}
+function fitSlide(s){
+  // matn hajmiga qarab shriftni moslash: kam matn — kattaroq, ko‘p matn — kichikroq (hech narsa kesilmaydi)
+  const over=()=>s.scrollHeight>s.clientHeight+2;
+  let k=1; s.style.setProperty('--k',k);
+  if(!over() && !s.classList.contains('title-slide') && !s.classList.contains('divider')){
+    while(k<1.3){ s.style.setProperty('--k',(k+0.05).toFixed(2)); if(over()){ break; } k+=0.05; }
+    s.style.setProperty('--k',k.toFixed(2));
+  }
+  for(let i=0;i<30 && over() && k>0.42;i++){ k-=0.03; s.style.setProperty('--k',k.toFixed(2)); }
+}
 function renderDeck(d, pane){
   const S = buildSlides(d);
   pane.innerHTML = `<div class="deck"><div class="stage" id="stage" tabindex="0" aria-roledescription="taqdimot">
-     ${S.map((s,i)=>`<section class="slide ${s.cls||''}${s.quiz?' qq':''}" data-i="${i}" data-ans="${s.quiz?s.quiz.a:''}" hidden>${s.html}</section>`).join('')}</div>
+     ${S.map((s,i)=>`<section class="slide ${s.cls||''}${s.quiz?' qq':''}" data-i="${i}" data-ans="${s.quiz?s.quiz.a:''}" hidden>${s.html}</section>`).join('')}
+     <div class="ovw" id="ovw" hidden><div class="ovw-h"><b>Barcha slaydlar (${S.length})</b><button class="iconbtn" id="ovx">✕</button></div>
+       <div class="ovw-g">${S.map((s,i)=>`<button class="ovw-i ${s.cls&&s.cls.startsWith('divider')?'dv':''}" data-go="${i}"><span>${i+1}</span>${esc(strip(s.title||''))}</button>`).join('')}</div></div></div>
    <div class="deckbar"><button class="iconbtn" id="prev" aria-label="Oldingi slayd">←</button><button class="iconbtn" id="next" aria-label="Keyingi qadam">→</button>
-     <span class="cnt" id="cnt"></span><span class="prog"><i id="pbar"></i></span>
-     <button class="iconbtn" id="auto">▶ Avto</button><button class="iconbtn" id="fs">⛶ To‘liq ekran</button></div>
-   <p class="empty" style="font-size:.85rem;margin-top:8px">Boshqarish: → / bo‘sh joy — keyingi qadam, ← — orqaga; telefon ekranida suring.</p></div>`;
-  const stage = pane.querySelector('#stage'), slides=[...stage.querySelectorAll('.slide')];
-  const st = {i:0, step:0, timer:null}; deckState=st;
+     <span class="cnt" id="cnt"></span><span class="prog"><i id="pbar"></i></span><span class="cnt" id="clk" title="Taqdimot vaqti">0:00</span>
+     <button class="iconbtn" id="ov" title="Slaydlar ro‘yxati (O)">▦ Slaydlar</button><button class="iconbtn" id="auto">▶ Avto</button>
+     <button class="iconbtn" id="fs" title="To‘liq ekran (F)">⛶ To‘liq ekran</button><button class="iconbtn" id="pdf" title="Barcha slaydlarni chop etish yoki PDF">⎙ PDF</button></div>
+   <p class="empty" style="font-size:.85rem;margin-top:8px">Boshqarish: → / bo‘sh joy — keyingi qadam, ← — orqaga, O — slaydlar ro‘yxati, F — to‘liq ekran; telefonda suring. Taqdimot mashg‘ulot matnini to‘liq qamrab oladi (${S.length} ta slayd).</p></div>`;
+  const stage = pane.querySelector('#stage'), slides=[...stage.querySelectorAll('.slide')], ovw=pane.querySelector('#ovw');
+  const st = {i:0, step:0, timer:null, t0:Date.now()}; deckState=st;
   const reveals = s => [...s.querySelectorAll('.rv')];
   function show(i, step=0){
-    st.i=Math.max(0,Math.min(slides.length-1,i)); slides.forEach((s,k)=>s.hidden=k!==st.i);
+    const prevI=st.i; st.i=Math.max(0,Math.min(slides.length-1,i)); slides.forEach((s,k)=>s.hidden=k!==st.i);
     const s=slides[st.i]; const rv=reveals(s);
-    // first reveal group: everything up to the first item of a list or steam list
-    const auto = s.classList.contains('title-slide') ? rv.length : Math.max(1, Math.min(rv.length, 2));
+    s.classList.remove('enter','back'); void s.offsetWidth; s.classList.add(st.i>=prevI?'enter':'back');
+    const auto = (s.classList.contains('title-slide')||s.classList.contains('divider')) ? rv.length : Math.min(rv.length, 1);
     st.step = step==='all' ? rv.length : Math.max(step, auto);
     rv.forEach((r,k)=>r.classList.toggle('on', k<st.step));
-    animateSVG(s);
+    animateSVG(s); fitSlide(s);
     pane.querySelector('#cnt').textContent=(st.i+1)+' / '+slides.length;
     pane.querySelector('#pbar').style.width=((st.i+1)/slides.length*100)+'%';
     setupQQ(s);
@@ -513,13 +761,25 @@ function renderDeck(d, pane){
   function next(){ const rv=reveals(slides[st.i]); if(st.step<rv.length){ st.step++; rv.forEach((r,k)=>r.classList.toggle('on',k<st.step)); } else if(st.i<slides.length-1) show(st.i+1); else stopAuto(); }
   function prev(){ if(st.i>0) show(st.i-1,'all'); }
   function stopAuto(){ clearInterval(st.timer); st.timer=null; pane.querySelector('#auto').textContent='▶ Avto'; }
+  const toggleOv = v => { ovw.hidden = v===undefined ? !ovw.hidden : !v; if(!ovw.hidden){ ovw.querySelectorAll('.ovw-i').forEach((b,k)=>b.classList.toggle('cur',k===st.i)); const c=ovw.querySelector('.cur'); if(c) c.scrollIntoView({block:'nearest'}); } };
   pane.querySelector('#next').onclick=next; pane.querySelector('#prev').onclick=prev;
-  pane.querySelector('#auto').onclick=()=>{ if(st.timer){ stopAuto(); return; } st.timer=setInterval(next,2600); pane.querySelector('#auto').textContent='⏸ To‘xtatish'; };
+  pane.querySelector('#ov').onclick=()=>toggleOv(); pane.querySelector('#ovx').onclick=e=>{ e.stopPropagation(); toggleOv(false); };
+  ovw.querySelectorAll('.ovw-i').forEach(b=>b.onclick=e=>{ e.stopPropagation(); toggleOv(false); show(+b.dataset.go,'all'); });
+  pane.querySelector('#auto').onclick=()=>{ if(st.timer){ stopAuto(); return; } st.timer=setInterval(next,3200); pane.querySelector('#auto').textContent='⏸ To‘xtatish'; };
   pane.querySelector('#fs').onclick=()=>{ try{ if(document.fullscreenElement) document.exitFullscreen(); else stage.requestFullscreen().catch(()=>{}); }catch(e){} };
-  stage.addEventListener('click',e=>{ if(e.target.closest('button,a')) return; next(); });
+  pane.querySelector('#pdf').onclick=()=>{ document.body.classList.add('print-deck'); slides.forEach(s=>{ s.hidden=false; reveals(s).forEach(r=>r.classList.add('on')); animateSVG(s); });
+    setTimeout(()=>{ window.print(); document.body.classList.remove('print-deck'); show(st.i,'all'); },300); };
+  document.addEventListener('fullscreenchange',()=>setTimeout(()=>fitSlide(slides[st.i]),120));
+  window.addEventListener('resize',()=>{ if(document.getElementById('stage')) fitSlide(slides[st.i]); });
+  const clk=pane.querySelector('#clk'); const ct=setInterval(()=>{ if(!document.body.contains(clk)){ clearInterval(ct); return; } const s=Math.floor((Date.now()-st.t0)/1000); clk.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); },1000);
+  stage.addEventListener('click',e=>{ if(e.target.closest('button,a,.ovw')) return; next(); });
   let x0=null; stage.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
   stage.addEventListener('touchend',e=>{ if(x0==null) return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>50){ dx<0?next():prev(); } x0=null; });
-  document.onkeydown = e=>{ if(!document.getElementById('stage')) return; if(['ArrowRight',' ','PageDown'].includes(e.key)){ e.preventDefault(); next(); } if(['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); } };
+  document.onkeydown = e=>{ if(!document.getElementById('stage')) return; if(e.target.closest&&e.target.closest('input,textarea,select')) return;
+    if(['ArrowRight',' ','PageDown'].includes(e.key)){ e.preventDefault(); next(); }
+    else if(['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if(e.key==='o'||e.key==='O'){ toggleOv(); } else if(e.key==='f'||e.key==='F'){ pane.querySelector('#fs').click(); }
+    else if(e.key==='Escape'){ toggleOv(false); } else if(e.key==='Home'){ show(0); } else if(e.key==='End'){ show(slides.length-1,'all'); } };
   show(0);
 }
 function setupQQ(s){
@@ -535,10 +795,10 @@ function setupQQ(s){
 /* ---------------- QUIZ ---------------- */
 function renderQuiz(d, pane){
   const Q = d.tests; const r = getRes(d.key,'test');
-  pane.innerHTML = `<div class="quiz result"><div class="kicker" style="font-family:var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-size:.75rem">Test o‘yini · 20 ball</div>
+  pane.innerHTML = `<div class="quiz result"><div class="kicker" style="font-family:var(--f-display);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-size:.75rem">Test o‘yini · 20 savol</div>
     <h2 style="font-family:var(--f-display);font-size:1.6rem;margin:6px 0 10px">${Q.length} savol · har biriga 1 daqiqa</h2>
-    <p style="color:var(--ink-soft);max-width:58ch;margin:0 auto 16px">Har bir to‘g‘ri javob baholashda 1 ball beradi (jami 20 ball). O‘yin ochkosi: to‘g‘ri javob — 100, tez javob uchun +50 gacha bonus, ketma-ket to‘g‘ri javoblar seriyasi uchun qo‘shimcha ochko.</p>
-    ${r?`<p class="chip best" style="display:inline-block">Oxirgi natija: ${r.right} / 20 ball</p>`:''}
+    <p style="color:var(--ink-soft);max-width:58ch;margin:0 auto 16px">To‘g‘ri javoblar soni 8 ballik joriy nazoratga mutanosib qo‘shiladi. O‘yin ochkosi: to‘g‘ri javob — 100, tez javob uchun +50 gacha bonus, ketma-ket to‘g‘ri javoblar seriyasi uchun qo‘shimcha ochko.</p>
+    ${r?`<p class="chip best" style="display:inline-block">Oxirgi natija: ${r.right} / 20 to‘g‘ri</p>`:''}
     <p><button class="btn red" id="go">O‘yinni boshlash</button></p></div>`;
   pane.querySelector('#go').onclick=()=>playQuiz(d, pane);
 }
@@ -589,7 +849,8 @@ function playQuiz(d, pane){
 function route(){
   const h=location.hash.replace('#','');
   const m=h.match(/^(a|mt)(\d+)(?:-(taqdimot|test|yopiq|vizual|baholash|yoriqnoma))?$/);
-  if(m) topic(m[1]+m[2], m[3]||'matn'); else home(document.getElementById('q').value);
+  const j=h.match(/^jn([123])$/);
+  if(j) renderJN(+j[1]); else if(m) topic(m[1]+m[2], m[3]||'matn'); else home(document.getElementById('q').value);
 }
 document.getElementById('q').addEventListener('input',e=>{ if(location.hash && !['#','#mundarija','#mt'].includes(location.hash)){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(err){} } home(e.target.value); });
 window.addEventListener('hashchange',route);
